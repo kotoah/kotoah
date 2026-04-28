@@ -39,7 +39,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-y-0 bg-soft-cream">
       {/* 1. Hero Section */}
-      <section className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-primary-50">
+      <section className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-primary-50 pt-20 lg:pt-0">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary-100/50 rounded-l-[100px] hidden lg:block -z-0" />
         <div className="container mx-auto px-4 z-10 flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 text-center lg:text-left">
