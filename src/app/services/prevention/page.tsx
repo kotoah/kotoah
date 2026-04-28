@@ -223,7 +223,7 @@ export default function PreventionPage() {
                 <div className="w-16 h-16 bg-primary-600 text-white rounded-3xl flex items-center justify-center shadow-lg">
                   <Syringe className="w-10 h-10" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-black text-gray-900">
+                <h2 className="text-2xl md:text-4xl font-black text-gray-900">
                   3. ワクチン接種
                   <span className="block text-lg text-primary-700 font-bold mt-1">目に見えないウイルスから身を守る</span>
                 </h2>
@@ -294,5 +294,8 @@ export default function PreventionPage() {
         </div>
       </div>
     </div>
+  );
+}
+>
   );
 }

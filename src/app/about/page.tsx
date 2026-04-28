@@ -136,8 +136,7 @@ export default function AboutPage() {
                 <Phone className="w-6 h-6 text-accent-600 shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-gray-900 mb-1">電話番号</h4>
-                  <p className="text-2xl font-black text-gray-900">00-0000-0000</p>
-                </div>
+                  <p className="text-xl md:text-2xl font-black text-gray-900">00-0000-0000</p>                </div>
               </div>
               <div className="flex items-start gap-6">
                 <Clock className="w-6 h-6 text-accent-600 shrink-0 mt-1" />
@@ -161,4 +160,5 @@ export default function AboutPage() {
       </section>
     </div>
   );
+}
 }

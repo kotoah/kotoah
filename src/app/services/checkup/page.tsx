@@ -59,7 +59,7 @@ export default async function CheckupServicePage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6 text-white border border-white/30">
             <Search className="w-10 h-10" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-black mb-6">健康診断（ペットドック）</h1>
+          <h1 className="text-3xl md:text-5xl font-black mb-6">健康診断（ペットドック）</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto font-bold leading-relaxed">
             元気な「今」を知ることが、<br />
             明日への一番の安心に繋がります。

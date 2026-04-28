@@ -73,7 +73,7 @@ export default async function HotelPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6 text-white border border-white/30">
             <Building2 className="w-10 h-10" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-black mb-6">ペットホテル</h1>
+          <h1 className="text-3xl md:text-5xl font-black mb-6">ペットホテル</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto font-bold leading-relaxed">
             獣医師のいる安心感。<br />
             大切な家族がリラックスして過ごせる環境を提供します。

@@ -36,7 +36,7 @@ export default async function FacilitiesPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6 text-white border border-white/30">
             <Monitor className="w-10 h-10" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tighter">設備・検査案内</h1>
+          <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tighter">設備・検査案内</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto font-bold leading-relaxed">
             大切な家族の「声なき声」を聴くために。<br />
             確かな診断を支える院内設備をご紹介します。

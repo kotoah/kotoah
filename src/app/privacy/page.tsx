@@ -15,7 +15,7 @@ export default function PrivacyPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-50 rounded-2xl mb-6 text-primary-600">
             <ShieldCheck className="w-10 h-10" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">プライバシーポリシー</h1>
+          <h1 className="text-2xl md:text-4xl font-black text-gray-900 mb-4">プライバシーポリシー</h1>
           <p className="text-gray-500">個人情報の取り扱いについて</p>
         </div>
       </section>

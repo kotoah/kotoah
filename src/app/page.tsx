@@ -284,7 +284,7 @@ export default async function Home() {
       {/* 7. Footer Call to Action */}
       <section className="py-32 bg-gray-900 mx-4 rounded-b-[100px] text-center text-white relative overflow-hidden">
          <div className="container mx-auto px-4 relative z-10 space-y-10">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight">
               大切な家族の健康を、<br className="md:hidden" />一緒に守りましょう。
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -304,5 +304,8 @@ export default async function Home() {
          </div>
       </section>
     </div>
+  );
+}
+div>
   );
 }

@@ -114,13 +114,13 @@ export function Header() {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className="text-2xl font-black text-gray-900"
+                    className="text-xl font-black text-gray-900"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ) : (
-                  <div className="text-2xl font-black text-gray-900">{item.name}</div>
+                  <div className="text-xl font-black text-gray-900">{item.name}</div>
                 )}
                 
                 {item.children && (

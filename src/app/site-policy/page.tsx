@@ -15,7 +15,7 @@ export default function SitePolicyPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-accent-50 rounded-2xl mb-6 text-accent-600">
             <FileText className="w-10 h-10" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">サイトポリシー</h1>
+          <h1 className="text-2xl md:text-4xl font-black text-gray-900 mb-4">サイトポリシー</h1>
           <p className="text-gray-500">本ウェブサイトのご利用にあたって</p>
         </div>
       </section>

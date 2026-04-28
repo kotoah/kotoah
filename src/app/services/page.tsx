@@ -151,7 +151,7 @@ export default function ServicesPage() {
       <section className="py-24 bg-white rounded-[80px] mx-4 border-t border-soft-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">診療の流れ</h2>
+            <h2 className="text-2xl md:text-5xl font-black text-gray-900 mb-6">診療の流れ</h2>
             <div className="w-20 h-2 bg-accent-500 mx-auto" />
           </div>
           <div className="max-w-5xl mx-auto">
@@ -191,5 +191,8 @@ export default function ServicesPage() {
         </div>
       </section>
     </div>
+  );
+}
+
   );
 }
