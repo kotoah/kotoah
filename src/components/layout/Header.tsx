@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { PawPrint, ChevronDown } from "lucide-react";
+import { PawPrint, ChevronDown, Menu, X } from "lucide-react";
 
 const navigation = [
   { name: "ホーム", href: "/" },
@@ -28,11 +28,17 @@ const navigation = [
 
 export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // ページ遷移時にモバイルメニューを閉じる
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-lg border-b border-primary-50">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-3 group shrink-0">
+        <Link href="/" className="flex items-center space-x-3 group shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
           <div className="bg-primary-500 p-2 rounded-xl group-hover:rotate-12 transition-transform">
             <PawPrint className="w-6 h-6 text-white" />
           </div>
@@ -63,7 +69,7 @@ export function Header() {
                 </button>
               )}
 
-              {/* Dropdown Menu */}
+              {/* Dropdown Menu (Desktop) */}
               {item.children && openDropdown === item.name && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 bg-white rounded-3xl shadow-2xl border border-soft-100 p-3 flex flex-col gap-1 animate-in fade-in slide-in-from-top-2 duration-200">
                   {item.children.map((child) => (
@@ -89,13 +95,60 @@ export function Header() {
           </Link>
         </nav>
 
-        {/* Mobile menu button (can be implemented later if needed) */}
-        <button className="lg:hidden p-2 text-gray-600">
-           <div className="w-6 h-0.5 bg-current mb-1.5" />
-           <div className="w-6 h-0.5 bg-current mb-1.5" />
-           <div className="w-6 h-0.5 bg-current" />
+        {/* Mobile menu button */}
+        <button 
+          className="lg:hidden p-2 text-gray-600 focus:outline-none"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="メニュー"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 top-20 z-40 bg-white lg:hidden overflow-y-auto animate-in fade-in slide-in-from-right duration-300">
+          <div className="container mx-auto px-4 py-8 flex flex-col gap-y-6">
+            {navigation.map((item) => (
+              <div key={item.name} className="flex flex-col gap-y-3">
+                {item.href ? (
+                  <Link
+                    href={item.href}
+                    className="text-2xl font-black text-gray-900"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <div className="text-2xl font-black text-gray-900">{item.name}</div>
+                )}
+                
+                {item.children && (
+                  <div className="flex flex-col gap-y-2 pl-4 border-l-2 border-primary-100">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.name}
+                        href={child.href}
+                        className="text-lg font-bold text-gray-500 hover:text-primary-600"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {child.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+            <Link
+              href="/contact"
+              className="bg-primary-600 text-white text-center py-5 rounded-3xl font-black text-xl mt-4 shadow-xl"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              お問い合わせ
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
