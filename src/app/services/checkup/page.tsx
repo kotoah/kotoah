@@ -45,7 +45,6 @@ const checkupCourses = [
 const optionalItems = [
   "がんマーカー",
   "心臓マーカー",
-  "FGF-23（腎臓疾患の早期指標）",
   "甲状腺ホルモン",
 ];
 
