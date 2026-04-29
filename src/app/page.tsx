@@ -46,7 +46,7 @@ export default async function Home() {
             <span className="inline-block bg-primary-100 text-primary-700 px-4 py-1 rounded-full text-sm font-bold mb-6">
               滋賀県東近江市湖東の動物病院
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tighter">
+            <h1 className="text-[1.85rem] xs:text-4xl md:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tighter">
               言葉を話せない<br />
               <span className="text-primary-600">小さな家族</span>のために。
             </h1>
@@ -144,7 +144,7 @@ export default async function Home() {
       <section className="py-32 bg-soft-cream">
         <div className="container mx-auto px-4 text-center mb-16">
           <span className="text-primary-600 font-black tracking-widest uppercase text-sm">Our Services</span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mt-4 tracking-tighter">診療・サービス案内</h2>
+          <h2 className="text-[1.75rem] md:text-5xl font-black text-gray-900 mt-4 tracking-tighter">診療・サービス案内</h2>
         </div>
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
@@ -284,7 +284,7 @@ export default async function Home() {
       {/* 7. Footer Call to Action */}
       <section className="py-32 bg-gray-900 mx-4 rounded-b-[100px] text-center text-white relative overflow-hidden">
          <div className="container mx-auto px-4 relative z-10 space-y-10">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight">
+            <h2 className="text-[1.75rem] md:text-5xl font-black tracking-tighter leading-tight">
               大切な家族の健康を、<br className="md:hidden" />一緒に守りましょう。
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">

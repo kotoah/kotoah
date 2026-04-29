@@ -42,7 +42,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
         {/* Header Section */}
         <div className="text-center mb-16">
           <span className="text-primary-600 font-black tracking-widest uppercase text-sm mb-4 block">Our Journal</span>
-          <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-8">
+          <h1 className="text-[1.5rem] md:text-5xl font-black text-gray-900 mb-8">
             {categorySlug ? `${currentCategory?.title}の記事一覧` : "お知らせ・ブログ"}
           </h1>
           

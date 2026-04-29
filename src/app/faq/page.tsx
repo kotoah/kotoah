@@ -21,7 +21,7 @@ export default async function FaqPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6 text-white border border-white/30">
             <HelpCircle className="w-10 h-10" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-black mb-6">よくある質問</h1>
+          <h1 className="text-[1.5rem] md:text-5xl font-black mb-6">よくある質問</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto font-bold leading-relaxed">
             ご来院前の不安や疑問を解消。<br />
             キーワードやカテゴリからお探しいただけます。

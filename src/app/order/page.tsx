@@ -16,7 +16,7 @@ export default function OrderPage() {
           <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-bold mb-6 border border-white/30">
             Online Order
           </span>
-          <h1 className="text-3xl md:text-5xl font-black mb-6">フード・お薬の注文</h1>
+          <h1 className="text-[1.5rem] md:text-5xl font-black mb-6">フード・お薬の注文</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto font-bold leading-relaxed">
             事前の注文で、待ち時間を短縮。<br />
             準備が整いましたら、病院窓口にてお受け取りいただけます。

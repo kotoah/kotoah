@@ -73,7 +73,7 @@ export default async function HotelPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6 text-white border border-white/30">
             <Building2 className="w-10 h-10" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-black mb-6">ペットホテル</h1>
+          <h1 className="text-[1.5rem] md:text-5xl font-black mb-6">ペットホテル</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto font-bold leading-relaxed">
             獣医師のいる安心感。<br />
             大切な家族がリラックスして過ごせる環境を提供します。
@@ -229,7 +229,7 @@ export default async function HotelPage() {
         <section className="mt-24 max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-primary-600 font-bold tracking-widest uppercase text-sm mb-4 block">Reservation</span>
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">宿泊予約のお申し込み</h2>
+            <h2 className="text-[1.5rem] md:text-5xl font-black text-gray-900 mb-6">宿泊予約のお申し込み</h2>
             <p className="text-gray-500 leading-relaxed font-medium">
               以下のフォームより、ご宿泊の希望日程をお知らせください。<br />
               内容を確認後、当院スタッフより折り返しご連絡させていただきます。

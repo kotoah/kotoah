@@ -25,7 +25,7 @@ export default function GeneralServicePage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6 text-white border border-white/30">
             <Stethoscope className="w-10 h-10" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-black mb-6">一般診療</h1>
+          <h1 className="text-[1.5rem] md:text-5xl font-black mb-6">一般診療</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto font-bold leading-relaxed">
             身近なホームドクターとして。<br />
             日々のちょっとした異変も、お気軽にご相談ください。

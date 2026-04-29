@@ -37,7 +37,7 @@ export function Header() {
           <div className="bg-primary-500 p-2 rounded-xl group-hover:rotate-12 transition-transform">
             <PawPrint className="w-6 h-6 text-white" />
           </div>
-          <span className="text-xl font-black text-gray-900 tracking-tight">
+          <span className="text-[1.15rem] xs:text-xl font-black text-gray-900 tracking-tight whitespace-nowrap">
             湖東<span className="text-primary-600">どうぶつ病院</span>
           </span>
         </Link>

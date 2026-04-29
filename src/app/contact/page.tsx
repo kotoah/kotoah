@@ -16,7 +16,7 @@ export default function ContactPage() {
           <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-bold mb-6 border border-white/30">
             Contact Us
           </span>
-          <h1 className="text-3xl md:text-5xl font-black mb-6">お問い合わせ</h1>
+          <h1 className="text-[1.5rem] md:text-5xl font-black mb-6">お問い合わせ</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto font-bold leading-relaxed">
             ご不明な点やご相談がございましたら、<br className="hidden md:block" />
             お電話または以下のフォームよりお気軽にお問い合わせください。
