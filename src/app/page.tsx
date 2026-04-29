@@ -68,9 +68,6 @@ export default async function Home() {
               <PawPrint className="w-32 h-32 text-primary-100 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700" />
             </div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-transparent to-white/40">
-               <div className="bg-primary-500 text-white p-5 rounded-3xl mb-6 shadow-xl">
-                 <Heart className="w-12 h-12 fill-current" />
-               </div>
                <h3 className="text-3xl font-black text-gray-900 mb-2 tracking-tighter">湖東どうぶつ病院</h3>
                <p className="text-primary-600 font-bold tracking-widest text-sm uppercase">Koto Animal Hospital</p>            </div>
           </div>
