@@ -54,11 +54,11 @@ export default async function Home() {
               犬・猫からエキゾチックアニマルまで。<br />
               地域に根ざした、優しく誠実な医療をお届けします。
             </p>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-              <Link href="/services" className="bg-primary-600 text-white px-8 py-4 rounded-full font-bold hover:bg-primary-700 transition-all shadow-lg flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+              <Link href="/services" className="bg-primary-600 text-white px-8 py-4 rounded-full font-bold hover:bg-primary-700 transition-all shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
                 診療案内を見る <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/contact" className="bg-white text-gray-700 px-8 py-4 rounded-full font-bold border-2 border-soft-100 hover:bg-gray-50 transition-all shadow-sm">
+              <Link href="/contact" className="bg-white text-gray-700 px-8 py-4 rounded-full font-bold border-2 border-soft-100 hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center w-full sm:w-auto">
                 お問い合わせ
               </Link>
             </div>
@@ -78,7 +78,7 @@ export default async function Home() {
       </section>
 
       {/* 2. About Section */}
-      <section className="py-24 lg:py-32 bg-white rounded-t-[60px] lg:rounded-t-[100px] -mt-10 lg:-mt-20 relative z-10 shadow-[-20px_-20px_60px_rgba(0,0,0,0.02)]">
+      <section className="py-16 md:py-24 lg:py-32 bg-white rounded-t-[40px] lg:rounded-t-[100px] -mt-8 lg:-mt-20 relative z-10 shadow-[-20px_-20px_60px_rgba(0,0,0,0.02)]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1 space-y-8">
@@ -108,9 +108,9 @@ export default async function Home() {
       </section>
 
       {/* Features */}
-      <section className="container mx-auto px-4 py-32">
+      <section className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="bg-white p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-primary-200 transition-all group">
+          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-primary-200 transition-all group">
             <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary-500 group-hover:text-white transition-colors">
               <Heart className="w-8 h-8 text-primary-500 group-hover:text-white" />
             </div>
@@ -119,7 +119,7 @@ export default async function Home() {
               言葉を話せない動物たちの不安を取り除けるよう、優しく丁寧に、時間をかけて向き合います。
             </p>
           </div>
-          <div className="bg-white p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-accent-200 transition-all group">
+          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-accent-200 transition-all group">
             <div className="w-16 h-16 bg-accent-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent-500 group-hover:text-white transition-colors">
               <Stethoscope className="w-8 h-8 text-accent-500 group-hover:text-white" />
             </div>
@@ -128,7 +128,7 @@ export default async function Home() {
               飼い主様が納得して治療を選択できるよう、専門用語を避け、分かりやすい説明を心がけています。
             </p>
           </div>
-          <div className="bg-white p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-primary-200 transition-all group">
+          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-primary-200 transition-all group">
             <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary-500 group-hover:text-white transition-colors">
               <ShieldCheck className="w-8 h-8 text-primary-500 group-hover:text-white" />
             </div>
@@ -141,7 +141,7 @@ export default async function Home() {
       </section>
 
       {/* 3. Services Hub */}
-      <section className="py-32 bg-soft-cream">
+      <section className="py-16 md:py-24 lg:py-32 bg-soft-cream">
         <div className="container mx-auto px-4 text-center mb-16">
           <span className="text-primary-600 font-black tracking-widest uppercase text-sm">Our Services</span>
           <h2 className="text-[1.75rem] md:text-5xl font-black text-gray-900 mt-4 tracking-tighter">診療・サービス案内</h2>
@@ -153,7 +153,7 @@ export default async function Home() {
             { title: "ペットホテル", icon: <Building2 />, href: "/hotel", color: "bg-primary-600", text: "獣医師が見守る安心の宿泊。" },
             { title: "料金案内", icon: <Banknote />, href: "/pricing", color: "bg-gray-800", text: "透明性のある料金体系。" }
           ].map((s) => (
-            <Link key={s.title} href={s.href} className="bg-white p-10 rounded-[40px] shadow-sm border border-soft-100 hover:shadow-2xl hover:-translate-y-2 transition-all flex flex-col items-center text-center group">
+            <Link key={s.title} href={s.href} className="bg-white p-6 md:p-10 rounded-[40px] shadow-sm border border-soft-100 hover:shadow-2xl hover:-translate-y-2 transition-all flex flex-col items-center text-center group">
               <div className={`${s.color} text-white p-5 rounded-2xl mb-6 shadow-lg group-hover:rotate-6 transition-transform`}>
                 {s.icon}
               </div>
@@ -168,7 +168,7 @@ export default async function Home() {
       </section>
 
       {/* 4. Target Animals */}
-      <section className="py-32 bg-primary-600 rounded-[100px] mx-4 overflow-hidden relative shadow-2xl">
+      <section className="py-16 md:py-24 lg:py-32 bg-primary-600 rounded-[100px] mx-4 overflow-hidden relative shadow-2xl">
         <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="mb-16">
@@ -198,7 +198,7 @@ export default async function Home() {
       </section>
 
       {/* 5. Food & Medicine Order Hub */}
-      <section className="py-32 bg-white">
+      <section className="py-16 md:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4">
           <div className="bg-soft-50 rounded-[80px] p-12 md:p-20 flex flex-col md:flex-row items-center gap-16 border border-soft-100">
             <div className="flex-1 space-y-8">
@@ -236,7 +236,7 @@ export default async function Home() {
       </section>
 
       {/* 6. Calendar & Latest News Hub */}
-      <section className="py-32 bg-soft-cream">
+      <section className="py-16 md:py-24 lg:py-32 bg-soft-cream">
         <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Calendar */}
           <div className="lg:col-span-5 space-y-8">
@@ -282,7 +282,7 @@ export default async function Home() {
       </section>
 
       {/* 7. Footer Call to Action */}
-      <section className="py-20 lg:py-32 bg-gray-900 mx-4 rounded-b-[40px] lg:rounded-b-[100px] text-center text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 bg-gray-900 mx-4 rounded-b-[40px] lg:rounded-b-[100px] text-center text-white relative overflow-hidden">
          <div className="container mx-auto px-4 relative z-10 space-y-10">
             <h2 className="text-[1.75rem] md:text-5xl font-black tracking-tighter leading-tight">
               大切な家族の健康を、<br className="md:hidden" />一緒に守りましょう。

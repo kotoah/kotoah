@@ -152,7 +152,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
             ))}
           </div>
         ) : (
-          <div className="text-center py-32 bg-white rounded-[80px] border-4 border-dashed border-soft-100 shadow-inner">
+          <div className="text-center py-16 md:py-24 lg:py-32 bg-white rounded-[80px] border-4 border-dashed border-soft-100 shadow-inner">
             <div className="w-24 h-24 bg-soft-50 rounded-full flex items-center justify-center mx-auto mb-8">
               <Search className="w-12 h-12 text-soft-200" />
             </div>

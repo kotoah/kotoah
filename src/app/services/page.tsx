@@ -182,7 +182,7 @@ export default function ServicesPage() {
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             {["犬", "猫", "うさぎ", "ハムスター", "モルモット", "デグー", "フェレット", "ハリネズミ"].map((animal) => (
-              <span key={animal} className="bg-white px-4 py-2 border-2 border-primary-500 text-primary-700 font-bold text-sm shadow-[2px_2px_0px_#16a34a]">
+              <span key={animal} className="bg-white px-3 py-1.5 border-2 border-primary-500 text-primary-700 font-bold text-xs md:text-sm shadow-[2px_2px_0px_#16a34a]">
                 {animal}
               </span>
             ))}
