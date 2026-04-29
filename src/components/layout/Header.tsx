@@ -49,12 +49,10 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // ハイドレーションエラー対策: コンポーネントがマウントされるまで待つ
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // メニュー開閉時に背景のスクロールを制御
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -66,129 +64,104 @@ export function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  // マウント前は最小限のヘッダーを返す（サーバーとクライアントの差異を防ぐ）
-  if (!mounted) {
-    return (
-      <header className="sticky top-0 z-[100] w-full bg-white border-b border-primary-50 h-20 flex items-center px-4">
-        <div className="flex items-center space-x-3">
-          <div className="bg-primary-500 p-2 rounded-xl">
-            <PawPrint className="w-6 h-6 text-white" />
-          </div>
-          <span className="text-[1.15rem] font-black text-gray-900 tracking-tight">
-            湖東<span className="text-primary-600">どうぶつ病院</span>
-          </span>
-        </div>
-      </header>
-    );
-  }
+  if (!mounted) return null;
 
   return (
-    <header className="sticky top-0 z-[100] w-full bg-white/80 backdrop-blur-lg border-b border-primary-50">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-3 group shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
-          <div className="bg-primary-500 p-2 rounded-xl group-hover:rotate-12 transition-transform">
-            <PawPrint className="w-6 h-6 text-white" />
-          </div>
-          <span className="text-[1.15rem] xs:text-xl font-black text-gray-900 tracking-tight whitespace-nowrap">
-            湖東<span className="text-primary-600">どうぶつ病院</span>
-          </span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-x-8">
-          {navigation.map((item) => (
-            <div 
-              key={item.name} 
-              className="relative"
-              onMouseEnter={() => item.children && setOpenDropdown(item.name)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              {item.href ? (
-                <Link
-                  href={item.href}
-                  className="text-sm font-bold text-gray-600 hover:text-primary-600 transition-colors py-8 block"
-                >
-                  {item.name}
-                </Link>
-              ) : (
-                <button className="flex items-center gap-1 text-sm font-bold text-gray-600 hover:text-primary-600 transition-colors py-8">
-                  {item.name}
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
-                </button>
-              )}
-
-              {/* Dropdown Menu (Desktop) */}
-              {item.children && openDropdown === item.name && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 bg-white rounded-3xl shadow-2xl border border-soft-100 p-3 flex flex-col gap-1 animate-in fade-in slide-in-from-top-2 duration-200">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.name}
-                      href={child.href}
-                      className="px-5 py-3 rounded-2xl text-sm font-bold text-gray-600 hover:bg-primary-50 hover:text-primary-600 transition-all"
-                      onClick={() => setOpenDropdown(null)}
-                    >
-                      {child.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
+    <>
+      <header className="sticky top-0 z-[50] w-full bg-white/95 backdrop-blur-md border-b border-primary-50">
+        <div className="container mx-auto flex h-20 items-center justify-between px-4">
+          <Link href="/" className="flex items-center space-x-3 group shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
+            <div className="bg-primary-500 p-2 rounded-xl">
+              <PawPrint className="w-6 h-6 text-white" />
             </div>
-          ))}
-          
-          <Link
-            href="/contact"
-            className="bg-primary-600 text-white px-8 py-3 rounded-full font-black text-sm hover:bg-primary-700 transition-all shadow-lg shadow-primary-100 ml-4"
-          >
-            お問い合わせ
+            <span className="text-[1.1rem] xs:text-xl font-black text-gray-900 tracking-tight whitespace-nowrap">
+              湖東<span className="text-primary-600">どうぶつ病院</span>
+            </span>
           </Link>
-        </nav>
 
-        {/* Mobile Menu Trigger Button */}
-        <button 
-          type="button"
-          className="lg:hidden flex flex-col items-center justify-center p-2 relative z-[1000001]"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? (
-            <div className="bg-gray-100 p-2 rounded-full">
-              <X className="w-8 h-8 text-gray-900" />
-            </div>
-          ) : (
-            <div className="flex flex-col items-center">
-              <div className="bg-primary-600 text-white px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg shadow-primary-100">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-x-8">
+            {navigation.map((item) => (
+              <div 
+                key={item.name} 
+                className="relative"
+                onMouseEnter={() => item.children && setOpenDropdown(item.name)}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                {item.href ? (
+                  <Link
+                    href={item.href}
+                    className="text-sm font-bold text-gray-600 hover:text-primary-600 transition-colors py-8 block"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <button className="flex items-center gap-1 text-sm font-bold text-gray-600 hover:text-primary-600 transition-colors py-8">
+                    {item.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
+                  </button>
+                )}
+
+                {item.children && openDropdown === item.name && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 bg-white rounded-3xl shadow-2xl border border-soft-100 p-3 flex flex-col gap-1 animate-in fade-in slide-in-from-top-2 duration-200">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.name}
+                        href={child.href}
+                        className="px-5 py-3 rounded-2xl text-sm font-bold text-gray-600 hover:bg-primary-50 hover:text-primary-600 transition-all"
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        {child.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+            <Link
+              href="/contact"
+              className="bg-primary-600 text-white px-8 py-3 rounded-full font-black text-sm hover:bg-primary-700 transition-all shadow-lg shadow-primary-100 ml-4"
+            >
+              お問い合わせ
+            </Link>
+          </nav>
+
+          {/* Mobile Menu Trigger */}
+          <button 
+            type="button"
+            className="lg:hidden flex items-center justify-center relative z-[2000]"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <div className="bg-gray-100 p-2 rounded-full">
+                <X className="w-8 h-8 text-gray-900" />
+              </div>
+            ) : (
+              <div className="bg-primary-600 text-white px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
                 <Menu className="w-5 h-5" />
                 <span className="text-xs font-black uppercase tracking-widest">Menu</span>
               </div>
-            </div>
-          )}
-        </button>
-      </div>
+            )}
+          </button>
+        </div>
+      </header>
 
-      {/* Modern Dashboard Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay (Outside header for better Chrome support) */}
       {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 top-0 left-0 w-full h-full z-[1000000] bg-white flex flex-col"
-          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
-        >
-          {/* Menu Header (Branding) */}
-          <div className="flex items-center justify-between h-20 px-6 shrink-0 bg-white border-b border-gray-100">
+        <div className="fixed inset-0 bg-white z-[1000] flex flex-col overflow-hidden animate-in fade-in duration-200">
+          <div className="flex items-center justify-between h-20 px-4 border-b border-gray-100 shrink-0">
             <div className="flex items-center space-x-3">
               <div className="bg-primary-500 p-2 rounded-xl">
                 <PawPrint className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-black text-gray-900">
-                湖東<span className="text-primary-600">どうぶつ病院</span>
-              </span>
+              <span className="text-xl font-black text-gray-900">湖東<span className="text-primary-600">どうぶつ病院</span></span>
             </div>
-            {/* Inner close button - redundant but safe */}
-            <div className="w-10 h-10" /> 
           </div>
 
-          {/* Dashboard Body */}
           <div className="flex-1 overflow-y-auto px-4 py-8 bg-white">
             <div className="grid grid-cols-2 gap-4 pb-24">
               {navigation.map((item) => (
-                <div key={item.name} className={`${item.children ? 'col-span-2 mt-4' : 'col-span-1'}`}>
+                <div key={item.name} className={item.children ? 'col-span-2 mt-4' : 'col-span-1'}>
                   {item.href ? (
                     <Link
                       href={item.href}
@@ -228,26 +201,18 @@ export function Header() {
             </div>
           </div>
 
-          {/* Dashboard Footer (Quick Contact) */}
           <div className="p-6 bg-white border-t border-gray-100 shrink-0 grid grid-cols-2 gap-4 pb-safe">
-            <a
-              href="tel:00-0000-0000"
-              className="bg-accent-500 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg shadow-accent-100 active:bg-accent-600"
-            >
+            <a href="tel:00-0000-0000" className="bg-accent-500 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg">
               <Phone className="w-6 h-6 mb-1" />
               <span className="text-xs">お電話</span>
             </a>
-            <Link
-              href="/contact"
-              className="bg-primary-600 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg shadow-primary-100 active:bg-primary-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
+            <Link href="/contact" className="bg-primary-600 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg" onClick={() => setIsMobileMenuOpen(false)}>
               <Mail className="w-6 h-6 mb-1" />
               <span className="text-xs">相談フォーム</span>
             </Link>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
