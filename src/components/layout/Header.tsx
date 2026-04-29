@@ -30,11 +30,6 @@ export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // ページ遷移時にモバイルメニューを閉じる
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, []);
-
   return (
     <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-lg border-b border-primary-50">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
