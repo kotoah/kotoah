@@ -102,6 +102,34 @@ export default function VaccinePage() {
               </div>
             </div>
 
+            {/* Ferret Vaccines */}
+            <div className="bg-white p-8 md:p-12 rounded-[3rem] shadow-sm border border-soft-100">
+              <h2 className="text-2xl font-black text-gray-900 mb-8 border-l-8 border-orange-500 pl-6">フェレットちゃんの予防</h2>
+              <div className="space-y-10">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-black text-orange-600">犬ジステンパーワクチン</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    フェレットにとって犬ジステンパーは致死率がほぼ100%の極めて恐ろしい病気です。
+                    現在、日本国内にはフェレット専用のワクチンがないため、当院では安全性を考慮し、犬用のワクチンを適切に選択して接種を行っています。
+                  </p>
+                  <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100">
+                    <h4 className="font-black text-orange-800 mb-2 text-sm">接種スケジュール</h4>
+                    <p className="text-xs text-gray-600 leading-relaxed">
+                      子犬・子猫と同様に、成長に合わせて複数回の初回接種を行い、その後は年に1回の追加接種を推奨しています。
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-xl font-black text-orange-600">フィラリア予防</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    フェレットもワンちゃん同様、蚊が媒介するフィラリア（犬糸状虫）に感染します。
+                    体が小さいため、わずか数匹の寄生でも重症化しやすく、治療も困難なため、月1回の予防薬による対策が非常に重要です。
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Schedule */}
             <div className="bg-gray-900 p-8 md:p-12 rounded-[3rem] text-white shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
