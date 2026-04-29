@@ -39,28 +39,52 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-y-0 bg-soft-cream">
       {/* 1. Hero Section */}
-      <section className="relative lg:h-[85vh] flex items-center overflow-hidden bg-primary-50 pt-24 lg:pt-0 pb-12 lg:pb-0">
+      <section className="relative min-h-[70vh] lg:h-[85vh] flex items-center overflow-hidden bg-primary-50 pt-24 lg:pt-0 pb-12 lg:pb-0">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary-100/50 rounded-l-[100px] hidden lg:block -z-0" />
-        <div className="container mx-auto px-4 z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          <div className="flex-1 text-center lg:text-left">
+        <div className="container mx-auto px-4 z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <div className="flex-1 text-center lg:text-left pt-8 lg:pt-0">
             <span className="inline-block bg-primary-100 text-primary-700 px-4 py-1 rounded-full text-xs font-bold mb-4">
               滋賀県東近江市湖東の動物病院
             </span>
-            <h1 className="text-[1.65rem] xs:text-4xl md:text-7xl font-black text-gray-900 mb-6 leading-tight tracking-tighter">
+            <h1 className="text-[1.85rem] xs:text-4xl md:text-7xl font-black text-gray-900 mb-6 leading-tight tracking-tighter">
               言葉を話せない<br />
-              <span className="text-primary-600">小さな家族</span>のために。
+              <span className="text-primary-600 font-black">小さな家族</span>のために。
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed">
-              犬・猫からエキゾチックアニマルまで。<br />
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed font-bold">
+              犬・猫からエキゾチックアニマルまで。<br className="hidden md:block" />
               地域に根ざした、優しく誠実な医療をお届けします。
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-              <Link href="/services" className="bg-primary-600 text-white px-8 py-3.5 rounded-full font-bold hover:bg-primary-700 transition-all shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
+              <Link href="/services" className="bg-primary-600 text-white px-8 py-4 rounded-full font-bold hover:bg-primary-700 transition-all shadow-lg shadow-primary-200 flex items-center justify-center gap-2 w-full sm:w-auto">
                 診療案内を見る <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/contact" className="bg-white text-gray-700 px-8 py-3.5 rounded-full font-bold border-2 border-soft-100 hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center w-full sm:w-auto">
+              <Link href="/contact" className="bg-white text-gray-700 px-8 py-4 rounded-full font-bold border-2 border-soft-100 hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center w-full sm:w-auto">
                 お問い合わせ
               </Link>
+            </div>
+          </div>
+
+          {/* Hero Visual for Desktop */}
+          <div className="flex-1 relative hidden lg:flex justify-center items-center">
+            <div className="relative w-full max-w-lg aspect-square">
+               {/* Decorative Shapes */}
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-white/40 rounded-full blur-3xl -z-10" />
+               
+               {/* Floating Cards */}
+               <div className="absolute top-0 left-0 w-48 h-48 bg-white rounded-[40px] shadow-xl p-8 flex flex-col items-center justify-center rotate-[-6deg] animate-bounce-slow">
+                 <PawPrint className="w-16 h-16 text-primary-500 mb-4" />
+                 <span className="font-black text-gray-800">ワンちゃん</span>
+               </div>
+
+               <div className="absolute bottom-12 right-0 w-52 h-52 bg-primary-600 rounded-[50px] shadow-2xl p-8 flex flex-col items-center justify-center rotate-[8deg] animate-float">
+                 <Heart className="w-16 h-16 text-white mb-4" />
+                 <span className="font-black text-white">ネコちゃん</span>
+               </div>
+
+               <div className="absolute top-20 right-8 w-40 h-40 bg-accent-500 rounded-[35px] shadow-xl p-6 flex flex-col items-center justify-center rotate-[12deg] animate-pulse-slow">
+                 <ShieldCheck className="w-12 h-12 text-white mb-3" />
+                 <span className="font-black text-white text-sm">エキゾチック</span>
+               </div>
             </div>
           </div>
         </div>

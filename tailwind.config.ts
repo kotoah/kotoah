@@ -45,6 +45,17 @@ const config: Config = {
       borderRadius: {
         '3xl': '1.5rem',
         '4xl': '2rem',
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'bounce-slow': 'bounce 4s infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0) rotate(8deg)' },
+          '50%': { transform: 'translateY(-20px) rotate(8deg)' },
+        }
       }
     },
   },
