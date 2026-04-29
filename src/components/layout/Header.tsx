@@ -35,6 +35,10 @@ const navigation = [
   { name: "お知らせ", href: "/news" },
 ];
 
+export function Header() {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   // メニュー開閉時に背景のスクロールを制御
   useEffect(() => {
     if (isMobileMenuOpen) {
