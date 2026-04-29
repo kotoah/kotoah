@@ -143,21 +143,24 @@ export default async function Home() {
           <span className="text-primary-600 font-black tracking-widest uppercase text-sm">Our Services</span>
           <h2 className="text-[1.75rem] md:text-5xl font-black text-gray-900 mt-4 tracking-tighter">診療・サービス案内</h2>
         </div>
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {[
             { title: "一般診療", icon: <Stethoscope />, href: "/services", color: "bg-blue-500", text: "内科・外科などの一般診療。" },
             { title: "予防医療", icon: <ShieldCheck />, href: "/services/prevention", color: "bg-accent-500", text: "ワクチン・フィラリア予防。" },
             { title: "ペットホテル", icon: <Building2 />, href: "/hotel", color: "bg-primary-600", text: "獣医師が見守る安心の宿泊。" },
             { title: "料金案内", icon: <Banknote />, href: "/pricing", color: "bg-gray-800", text: "透明性のある料金体系。" }
           ].map((s) => (
-            <Link key={s.title} href={s.href} className="bg-white p-6 md:p-10 rounded-[40px] shadow-sm border border-soft-100 hover:shadow-2xl hover:-translate-y-2 transition-all flex flex-col items-center text-center group">
-              <div className={`${s.color} text-white p-5 rounded-2xl mb-6 shadow-lg group-hover:rotate-6 transition-transform`}>
-                {s.icon}
+            <Link key={s.title} href={s.href} className="bg-white p-5 md:p-10 rounded-2xl md:rounded-[40px] shadow-sm border border-soft-100 hover:shadow-2xl hover:-translate-y-2 transition-all flex flex-col items-center text-center group">
+              <div className={`${s.color} text-white p-3 md:p-5 rounded-xl md:rounded-2xl mb-4 md:mb-6 shadow-lg group-hover:rotate-6 transition-transform`}>
+                {/* Responsive icon size */}
+                <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center child-svg:w-full child-svg:h-full">
+                  {s.icon}
+                </div>
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tighter">{s.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6">{s.text}</p>
-              <span className="mt-auto text-primary-600 font-bold text-sm flex items-center gap-1">
-                詳しく見る <ChevronRight className="w-4 h-4" />
+              <h3 className="text-sm md:text-2xl font-black text-gray-900 mb-2 md:mb-4 tracking-tighter">{s.title}</h3>
+              <p className="text-gray-500 text-[10px] md:text-sm leading-relaxed mb-4 hidden xs:block">{s.text}</p>
+              <span className="mt-auto text-primary-600 font-bold text-[10px] md:text-sm flex items-center gap-1">
+                詳しく <ChevronRight className="w-3 h-3 md:w-4 md:h-4" />
               </span>
             </Link>
           ))}
