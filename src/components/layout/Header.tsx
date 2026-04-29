@@ -47,6 +47,12 @@ const navigation = [
 export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // ハイドレーションエラー対策: コンポーネントがマウントされるまで待つ
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // メニュー開閉時に背景のスクロールを制御
   useEffect(() => {
@@ -55,7 +61,26 @@ export function Header() {
     } else {
       document.body.style.overflow = 'unset';
     }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [isMobileMenuOpen]);
+
+  // マウント前は最小限のヘッダーを返す（サーバーとクライアントの差異を防ぐ）
+  if (!mounted) {
+    return (
+      <header className="sticky top-0 z-[100] w-full bg-white border-b border-primary-50 h-20 flex items-center px-4">
+        <div className="flex items-center space-x-3">
+          <div className="bg-primary-500 p-2 rounded-xl">
+            <PawPrint className="w-6 h-6 text-white" />
+          </div>
+          <span className="text-[1.15rem] font-black text-gray-900 tracking-tight">
+            湖東<span className="text-primary-600">どうぶつ病院</span>
+          </span>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="sticky top-0 z-[100] w-full bg-white/80 backdrop-blur-lg border-b border-primary-50">
@@ -120,7 +145,8 @@ export function Header() {
 
         {/* Mobile Menu Trigger Button */}
         <button 
-          className="lg:hidden flex flex-col items-center justify-center p-2 relative z-[100001]"
+          type="button"
+          className="lg:hidden flex flex-col items-center justify-center p-2 relative z-[1000001]"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
@@ -140,9 +166,12 @@ export function Header() {
 
       {/* Modern Dashboard Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-0 left-0 w-full h-full z-[999999] bg-white flex flex-col overflow-hidden">
+        <div 
+          className="fixed inset-0 top-0 left-0 w-full h-full z-[1000000] bg-white flex flex-col"
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+        >
           {/* Menu Header (Branding) */}
-          <div className="flex items-center justify-between h-20 px-6 shrink-0 bg-white border-b border-gray-100 shadow-sm">
+          <div className="flex items-center justify-between h-20 px-6 shrink-0 bg-white border-b border-gray-100">
             <div className="flex items-center space-x-3">
               <div className="bg-primary-500 p-2 rounded-xl">
                 <PawPrint className="w-6 h-6 text-white" />
@@ -151,18 +180,13 @@ export function Header() {
                 湖東<span className="text-primary-600">どうぶつ病院</span>
               </span>
             </div>
-            {/* Inner close button for certainty */}
-            <button 
-              className="p-2 bg-gray-100 rounded-full text-gray-900"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <X className="w-8 h-8" />
-            </button>
+            {/* Inner close button - redundant but safe */}
+            <div className="w-10 h-10" /> 
           </div>
 
           {/* Dashboard Body */}
           <div className="flex-1 overflow-y-auto px-4 py-8 bg-white">
-            <div className="grid grid-cols-2 gap-4 pb-20">
+            <div className="grid grid-cols-2 gap-4 pb-24">
               {navigation.map((item) => (
                 <div key={item.name} className={`${item.children ? 'col-span-2 mt-4' : 'col-span-1'}`}>
                   {item.href ? (
