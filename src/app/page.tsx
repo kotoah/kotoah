@@ -39,43 +39,43 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-y-0 bg-soft-cream">
       {/* 1. Hero Section */}
-      <section className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-primary-50 pt-20 lg:pt-0">
+      <section className="relative lg:h-[85vh] flex items-center overflow-hidden bg-primary-50 pt-24 lg:pt-0 pb-12 lg:pb-0">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary-100/50 rounded-l-[100px] hidden lg:block -z-0" />
-        <div className="container mx-auto px-4 z-10 flex flex-col lg:flex-row items-center gap-12">
+        <div className="container mx-auto px-4 z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           <div className="flex-1 text-center lg:text-left">
-            <span className="inline-block bg-primary-100 text-primary-700 px-4 py-1 rounded-full text-sm font-bold mb-6">
+            <span className="inline-block bg-primary-100 text-primary-700 px-4 py-1 rounded-full text-xs font-bold mb-4">
               滋賀県東近江市湖東の動物病院
             </span>
-            <h1 className="text-[1.85rem] xs:text-4xl md:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tighter">
+            <h1 className="text-[1.65rem] xs:text-4xl md:text-7xl font-black text-gray-900 mb-6 leading-tight tracking-tighter">
               言葉を話せない<br />
               <span className="text-primary-600">小さな家族</span>のために。
             </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-xl leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl leading-relaxed">
               犬・猫からエキゾチックアニマルまで。<br />
               地域に根ざした、優しく誠実な医療をお届けします。
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-              <Link href="/services" className="bg-primary-600 text-white px-8 py-4 rounded-full font-bold hover:bg-primary-700 transition-all shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
+              <Link href="/services" className="bg-primary-600 text-white px-8 py-3.5 rounded-full font-bold hover:bg-primary-700 transition-all shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
                 診療案内を見る <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/contact" className="bg-white text-gray-700 px-8 py-4 rounded-full font-bold border-2 border-soft-100 hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center w-full sm:w-auto">
+              <Link href="/contact" className="bg-white text-gray-700 px-8 py-3.5 rounded-full font-bold border-2 border-soft-100 hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center w-full sm:w-auto">
                 お問い合わせ
               </Link>
             </div>
           </div>
-          <div className="flex-1 relative w-full max-w-lg aspect-square bg-white rounded-[80px] shadow-2xl overflow-hidden border-8 border-white group">
+          <div className="flex-1 relative w-full max-w-[320px] lg:max-w-lg aspect-square bg-white rounded-[60px] lg:rounded-[80px] shadow-2xl overflow-hidden border-4 lg:border-8 border-white group">
             <div className="absolute inset-0 bg-primary-50 flex items-center justify-center">
-              <PawPrint className="w-32 h-32 text-primary-100 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700" />
+              <PawPrint className="w-24 h-24 lg:w-32 lg:h-32 text-primary-100 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700" />
             </div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-transparent to-white/40">
-               <h3 className="text-3xl font-black text-gray-900 mb-2 tracking-tighter">湖東どうぶつ病院</h3>
-               <p className="text-primary-600 font-bold tracking-widest text-sm uppercase">Koto Animal Hospital</p>            </div>
+               <h3 className="text-2xl lg:text-3xl font-black text-gray-900 mb-1 tracking-tighter">湖東どうぶつ病院</h3>
+               <p className="text-primary-600 font-bold tracking-widest text-[10px] lg:text-sm uppercase">Koto Animal Hospital</p>            </div>
           </div>
         </div>
       </section>
 
       {/* 2. About Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white rounded-t-[40px] lg:rounded-t-[100px] -mt-8 lg:-mt-20 relative z-10 shadow-[-20px_-20px_60px_rgba(0,0,0,0.02)]">
+      <section className="py-12 lg:py-32 bg-white rounded-t-[40px] lg:rounded-t-[100px] -mt-6 lg:-mt-20 relative z-10 shadow-[-20px_-20px_60px_rgba(0,0,0,0.02)]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1 space-y-8">
@@ -174,29 +174,28 @@ export default async function Home() {
       </section>
 
       {/* 4. Target Animals */}
-      <section className="py-16 md:py-24 lg:py-32 bg-primary-600 rounded-[100px] mx-4 overflow-hidden relative shadow-2xl">
+      <section className="py-12 md:py-24 lg:py-32 bg-primary-600 rounded-[40px] lg:rounded-[100px] mx-4 overflow-hidden relative shadow-2xl">
         <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter">診察対象動物</h2>
-            <p className="text-primary-100 max-w-xl mx-auto font-bold">幅広いエキゾチックアニマルにも対応しております。</p>
+          <div className="mb-10 md:mb-16">
+            <h2 className="text-[1.75rem] md:text-5xl font-black text-white mb-4 tracking-tighter">診察対象動物</h2>
+            <p className="text-primary-100 max-w-xl mx-auto font-bold text-sm md:text-base">幅広いエキゾチックアニマルにも対応しております。</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {categories.map((category: Category) => (
               <Link 
                 key={category._id} 
                 href={`/news?category=${category.slug}`}
-                className="bg-white/10 backdrop-blur-md border-2 border-white/20 p-8 rounded-none text-center hover:bg-white transition-all group relative block"
-                style={{ clipPath: "polygon(0 5%, 5% 5%, 5% 0, 95% 0, 95% 5%, 100% 5%, 100% 95%, 95% 95%, 95% 100%, 5% 100%, 5% 95%, 0 95%)" }}
+                className="bg-white/10 backdrop-blur-md border-2 border-white/20 p-4 md:p-8 rounded-2xl md:rounded-none text-center hover:bg-white transition-all group relative block"
               >
-                <div className="w-20 h-20 mx-auto mb-4 bg-white pixel-icon-container text-primary-600 border-primary-600 overflow-hidden relative">
+                <div className="w-12 h-12 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 bg-white pixel-icon-container text-primary-600 border-primary-600 overflow-hidden relative">
                   {category.image ? (
-                    <Image src={urlFor(category.image).url()} alt={category.title} fill className="object-contain p-2" style={{ imageRendering: 'pixelated' }} />
+                    <Image src={urlFor(category.image).url()} alt={category.title} fill className="object-contain p-1 md:p-2" style={{ imageRendering: 'pixelated' }} />
                   ) : (
-                    <div className="text-4xl group-hover:scale-110 transition-transform select-none">🐾</div>
+                    <div className="text-2xl md:text-4xl group-hover:scale-110 transition-transform select-none">🐾</div>
                   )}
                 </div>
-                <div className="text-xl font-black text-white group-hover:text-primary-700 tracking-tighter">{category.title}</div>
+                <div className="text-base md:text-xl font-black text-white group-hover:text-primary-700 tracking-tighter">{category.title}</div>
               </Link>
             ))}
           </div>
@@ -204,23 +203,23 @@ export default async function Home() {
       </section>
 
       {/* 5. Food & Medicine Order Hub */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white">
+      <section className="py-12 md:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4">
-          <div className="bg-soft-50 rounded-[80px] p-12 md:p-20 flex flex-col md:flex-row items-center gap-16 border border-soft-100">
-            <div className="flex-1 space-y-8">
-              <div className="w-16 h-16 bg-primary-500 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-primary-100">
-                <ShoppingBag className="w-8 h-8" />
+          <div className="bg-soft-50 rounded-[40px] lg:rounded-[80px] p-6 md:p-20 flex flex-col md:flex-row items-center gap-8 lg:gap-16 border border-soft-100">
+            <div className="flex-1 space-y-6 lg:space-y-8">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-primary-500 text-white rounded-xl lg:rounded-2xl flex items-center justify-center shadow-lg shadow-primary-100">
+                <ShoppingBag className="w-6 h-6 lg:w-8 lg:h-8" />
               </div>
-              <h2 className="text-4xl font-black text-gray-900 tracking-tighter">フード・お薬の注文</h2>
-              <p className="text-gray-600 leading-relaxed text-lg font-medium">
+              <h2 className="text-2xl lg:text-4xl font-black text-gray-900 tracking-tighter">フード・お薬の注文</h2>
+              <p className="text-gray-600 leading-relaxed font-medium text-sm lg:text-lg">
                 いつものフードやお薬を、オンラインで事前に注文。
                 窓口での待ち時間を短縮し、スムーズにお受け取りいただけます。
               </p>
-              <Link href="/order" className="bg-primary-600 text-white px-10 py-5 rounded-full font-bold hover:bg-primary-700 transition-all shadow-xl inline-flex items-center gap-2">
+              <Link href="/order" className="bg-primary-600 text-white px-8 py-4 lg:px-10 lg:py-5 rounded-full font-bold hover:bg-primary-700 transition-all shadow-xl inline-flex items-center justify-center gap-2 w-full sm:w-auto">
                 注文フォームへ <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
-            <div className="flex-1 w-full max-w-md bg-white p-10 rounded-[60px] shadow-sm border border-soft-100">
+            <div className="flex-1 w-full max-w-md bg-white p-8 lg:p-10 rounded-[40px] lg:rounded-[60px] shadow-sm border border-soft-100">
                <ul className="space-y-6">
                  {[
                    { t: "フォームから注文", d: "必要事項をサッと入力" },
