@@ -105,34 +105,40 @@ export default async function Home() {
       </section>
 
       {/* Features */}
-      <section className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-primary-200 transition-all group">
-            <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary-500 group-hover:text-white transition-colors">
-              <Heart className="w-8 h-8 text-primary-500 group-hover:text-white" />
+      <section className="container mx-auto px-4 py-12 md:py-24 lg:py-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+          <div className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-primary-200 transition-all group flex items-start md:flex-col gap-6 md:gap-0">
+            <div className="w-14 h-14 md:w-16 md:h-16 bg-primary-50 rounded-2xl flex-shrink-0 flex items-center justify-center mb-0 md:mb-8 group-hover:bg-primary-500 group-hover:text-white transition-colors">
+              <Heart className="w-7 h-7 md:w-8 md:h-8 text-primary-500 group-hover:text-white" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-gray-800">優しい診察</h3>
-            <p className="text-gray-600 leading-relaxed">
-              言葉を話せない動物たちの不安を取り除けるよう、優しく丁寧に、時間をかけて向き合います。
-            </p>
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-4 text-gray-800">優しい診察</h3>
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                言葉を話せない動物たちの不安を取り除けるよう、優しく丁寧に、時間をかけて向き合います。
+              </p>
+            </div>
           </div>
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-accent-200 transition-all group">
-            <div className="w-16 h-16 bg-accent-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent-500 group-hover:text-white transition-colors">
-              <Stethoscope className="w-8 h-8 text-accent-500 group-hover:text-white" />
+          <div className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-accent-200 transition-all group flex items-start md:flex-col gap-6 md:gap-0">
+            <div className="w-14 h-14 md:w-16 md:h-16 bg-accent-50 rounded-2xl flex-shrink-0 flex items-center justify-center mb-0 md:mb-8 group-hover:bg-accent-500 group-hover:text-white transition-colors">
+              <Stethoscope className="w-7 h-7 md:w-8 md:h-8 text-accent-500 group-hover:text-white" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-gray-800">納得のいく説明</h3>
-            <p className="text-gray-600 leading-relaxed">
-              飼い主様が納得して治療を選択できるよう、専門用語を避け、分かりやすい説明を心がけています。
-            </p>
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-4 text-gray-800">納得のいく説明</h3>
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                飼い主様が納得して治療を選択できるよう、専門用語を避け、分かりやすい説明を心がけています。
+              </p>
+            </div>
           </div>
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-primary-200 transition-all group">
-            <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary-500 group-hover:text-white transition-colors">
-              <ShieldCheck className="w-8 h-8 text-primary-500 group-hover:text-white" />
+          <div className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-soft-100 hover:border-primary-200 transition-all group flex items-start md:flex-col gap-6 md:gap-0">
+            <div className="w-14 h-14 md:w-16 md:h-16 bg-primary-50 rounded-2xl flex-shrink-0 flex items-center justify-center mb-0 md:mb-8 group-hover:bg-primary-500 group-hover:text-white transition-colors">
+              <ShieldCheck className="w-7 h-7 md:w-8 md:h-8 text-primary-500 group-hover:text-white" />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-gray-800">安心の院内設備</h3>
-            <p className="text-gray-600 leading-relaxed">
-              常に清潔を保ち、適切にメンテナンスされた検査機器を揃えています。リラックスしてお待ちいただける環境づくりに努めています。
-            </p>
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-4 text-gray-800">安心の院内設備</h3>
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                常に清潔を保ち、適切にメンテナンスされた検査機器を揃えています。リラックスしてお待ちいただける環境づくりに努めています。
+              </p>
+            </div>
           </div>
         </div>
       </section>
