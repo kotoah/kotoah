@@ -140,9 +140,9 @@ export function Header() {
 
       {/* Modern Dashboard Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[100000] bg-soft-cream flex flex-col overflow-hidden">
+        <div className="fixed inset-0 top-0 left-0 w-full h-full z-[999999] bg-white flex flex-col overflow-hidden">
           {/* Menu Header (Branding) */}
-          <div className="flex items-center justify-center h-24 shrink-0 bg-white border-b border-gray-100">
+          <div className="flex items-center justify-between h-20 px-6 shrink-0 bg-white border-b border-gray-100 shadow-sm">
             <div className="flex items-center space-x-3">
               <div className="bg-primary-500 p-2 rounded-xl">
                 <PawPrint className="w-6 h-6 text-white" />
@@ -151,20 +151,27 @@ export function Header() {
                 湖東<span className="text-primary-600">どうぶつ病院</span>
               </span>
             </div>
+            {/* Inner close button for certainty */}
+            <button 
+              className="p-2 bg-gray-100 rounded-full text-gray-900"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <X className="w-8 h-8" />
+            </button>
           </div>
 
           {/* Dashboard Body */}
-          <div className="flex-1 overflow-y-auto px-4 py-8">
-            <div className="grid grid-cols-2 gap-4">
+          <div className="flex-1 overflow-y-auto px-4 py-8 bg-white">
+            <div className="grid grid-cols-2 gap-4 pb-20">
               {navigation.map((item) => (
                 <div key={item.name} className={`${item.children ? 'col-span-2 mt-4' : 'col-span-1'}`}>
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center gap-3 active:scale-95 transition-all"
+                      className="bg-gray-50 p-6 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center gap-3 active:bg-primary-50 transition-all"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <div className="w-12 h-12 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-white text-primary-600 rounded-2xl flex items-center justify-center shadow-sm">
                         <item.icon className="w-6 h-6" />
                       </div>
                       <span className="font-black text-gray-900 text-sm">{item.name}</span>
@@ -180,10 +187,10 @@ export function Header() {
                           <Link
                             key={child.name}
                             href={child.href}
-                            className="bg-white p-5 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center gap-3 active:scale-95 transition-all"
+                            className="bg-gray-50 p-5 rounded-[2rem] border border-gray-100 flex flex-col items-center justify-center text-center gap-3 active:bg-primary-50 transition-all"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
-                            <div className="w-10 h-10 bg-soft-50 text-gray-600 rounded-xl flex items-center justify-center group-active:bg-primary-500 group-active:text-white transition-colors">
+                            <div className="w-10 h-10 bg-white text-gray-600 rounded-xl flex items-center justify-center shadow-sm">
                               <child.icon className="w-5 h-5" />
                             </div>
                             <span className="font-bold text-gray-800 text-xs leading-tight">{child.name}</span>
