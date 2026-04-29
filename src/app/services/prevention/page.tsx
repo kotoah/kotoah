@@ -62,7 +62,8 @@ export default function PreventionPage() {
                   フィラリア症は、蚊によって媒介される寄生虫が心臓や肺の血管に住み着く病気です。放置すると命に関わりますが、<strong>「毎月1回の投薬」で確実に防げる病気</strong>です。
                 </p>
 
-                {/* 2026 Koto Policy */}                <div className="bg-primary-50 p-8 md:p-12 rounded-[40px] border-4 border-primary-200 relative overflow-hidden">
+                {/* 2026 Koto Policy */}
+                <div className="bg-primary-50 p-8 md:p-12 rounded-[40px] border-4 border-primary-200 relative overflow-hidden">
                   <div className="absolute top-0 right-0 p-4 opacity-10">
                     <CheckCircle2 className="w-24 h-24 text-primary-600" />
                   </div>
@@ -200,10 +201,10 @@ export default function PreventionPage() {
                         <AlertTriangle className="w-6 h-6 text-red-600" />
                         人間への恐ろしい感染症
                       </h3>
-                      <p className="text-sm text-red-800 leading-relaxed font-medium mb-6">
+                      <div className="text-sm text-red-800 leading-relaxed font-medium mb-6">
                         特に注意が必要なのが、マダニが媒介する<Link href="/services/prevention/sfts" className="underline font-black hover:text-red-600 transition-colors">SFTS（重症熱性血小板減少症候群）</Link>です。
                         これは動物だけでなく人間にも感染し、<strong>有効な治療薬やワクチンがなく、高い致死率が報告されている非常に危険な病気</strong>です。
-                      </p>
+                      </div>
                       <Link 
                         href="/services/prevention/sfts" 
                         className="inline-flex items-center gap-2 text-red-700 font-black hover:underline text-sm"
@@ -283,6 +284,7 @@ export default function PreventionPage() {
                  <nav className="space-y-2">
                    <Link href="#heartworm" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10">フィラリア予防</Link>
                    <Link href="#flea-tick" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10">ノミ・マダニ予防</Link>
+                   <Link href="/services/prevention/sfts" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10 text-rose-400 font-black">SFTSについて (重要)</Link>
                    <Link href="#vaccine" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10">ワクチン接種</Link>
                  </nav>
               </div>
@@ -311,13 +313,6 @@ export default function PreventionPage() {
             className="inline-flex items-center gap-2 text-primary-600 font-black hover:bg-primary-50 px-10 py-5 rounded-full border-2 border-primary-600 transition-all shadow-lg shadow-primary-50"
           >
             ← 診療案内トップへ戻る
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-     ← 診療案内トップへ戻る
           </Link>
         </div>
       </div>
