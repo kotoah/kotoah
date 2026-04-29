@@ -185,12 +185,6 @@ export default function VaccinePage() {
                     激しい運動やシャンプーは控え、ゆったり過ごさせてあげてください。
                   </p>
                 </div>
-                <div>
-                  <h4 className="text-sm font-black text-primary-600 mb-1">Q. 毎年打つべき？</h4>
-                  <p className="text-xs text-gray-500 leading-relaxed font-bold">
-                    WSAVAガイドラインに基づき、コアワクチンは3年に1回、ノンコアは毎年のように個別にプログラムを組みます。
-                  </p>
-                </div>
               </div>
             </div>
 
