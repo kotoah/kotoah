@@ -282,7 +282,7 @@ export default function PreventionPage() {
               <div className="bg-gray-900 text-white p-8 rounded-[40px] shadow-xl">
                  <h3 className="text-xl font-black mb-6">クイックメニュー</h3>
                  <nav className="space-y-2">
-                   <Link href="#heartworm" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10">フィラリア予防</Link>
+                   <Link href="/services/prevention/heartworm" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10 text-primary-400 font-black">フィラリア予防について</Link>
                    <Link href="#flea-tick" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10">ノミ・マダニ予防</Link>
                    <Link href="/services/prevention/sfts" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10 text-rose-400 font-black">SFTSについて (重要)</Link>
                    <Link href="#vaccine" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10">ワクチン接種</Link>
