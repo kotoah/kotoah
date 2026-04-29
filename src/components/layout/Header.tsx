@@ -159,6 +159,15 @@ export function Header() {
                 湖東<span className="text-primary-600">どうぶつ病院</span>
               </span>
             </div>
+            {/* Functional close button inside the overlay */}
+            <button 
+              type="button"
+              className="p-2 bg-gray-100 rounded-full text-gray-900 active:bg-gray-200"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="閉じる"
+            >
+              <X className="w-8 h-8" />
+            </button>
           </div>
 
           {/* DASHBOARD BODY - Forced height and scrollability */}
