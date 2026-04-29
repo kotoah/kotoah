@@ -68,7 +68,7 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-[50] w-full bg-white/95 backdrop-blur-md border-b border-primary-50">
+      <header className="sticky top-0 z-[100] w-full bg-white/90 backdrop-blur-md border-b border-primary-50">
         <div className="container mx-auto flex h-20 items-center justify-between px-4">
           <Link href="/" className="flex items-center space-x-3 group shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
             <div className="bg-primary-500 p-2 rounded-xl">
@@ -120,7 +120,7 @@ export function Header() {
             ))}
             <Link
               href="/contact"
-              className="bg-primary-600 text-white px-8 py-3 rounded-full font-black text-sm hover:bg-primary-700 transition-all shadow-lg shadow-primary-100 ml-4"
+              className="bg-primary-600 text-white px-8 py-3 rounded-full font-black text-sm hover:bg-primary-700 transition-all shadow-lg ml-4"
             >
               お問い合わせ
             </Link>
@@ -129,7 +129,7 @@ export function Header() {
           {/* Mobile Menu Trigger */}
           <button 
             type="button"
-            className="lg:hidden flex items-center justify-center relative z-[2000]"
+            className="lg:hidden flex items-center justify-center relative z-[10001]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -137,7 +137,7 @@ export function Header() {
                 <X className="w-8 h-8 text-gray-900" />
               </div>
             ) : (
-              <div className="bg-primary-600 text-white px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+              <div className="bg-primary-600 text-white px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg shadow-primary-100">
                 <Menu className="w-5 h-5" />
                 <span className="text-xs font-black uppercase tracking-widest">Menu</span>
               </div>
@@ -146,35 +146,39 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay (Outside header for better Chrome support) */}
+      {/* Mobile Menu Overlay (Outside header for total browser support) */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-[1000] flex flex-col overflow-hidden animate-in fade-in duration-200">
-          <div className="flex items-center justify-between h-20 px-4 border-b border-gray-100 shrink-0">
+        <div className="fixed inset-0 bg-white z-[10000] flex flex-col h-screen w-screen overflow-hidden">
+          {/* Header Area inside Overlay */}
+          <div className="flex items-center justify-between h-20 px-4 border-b border-gray-100 shrink-0 bg-white shadow-sm">
             <div className="flex items-center space-x-3">
               <div className="bg-primary-500 p-2 rounded-xl">
                 <PawPrint className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-black text-gray-900">湖東<span className="text-primary-600">どうぶつ病院</span></span>
+              <span className="text-xl font-black text-gray-900 tracking-tight">
+                湖東<span className="text-primary-600">どうぶつ病院</span>
+              </span>
             </div>
           </div>
 
-          <div className="flex-1 overflow-y-auto px-4 py-8 bg-white">
-            <div className="grid grid-cols-2 gap-4 pb-24">
+          {/* DASHBOARD BODY - Forced height and scrollability */}
+          <div className="flex-1 overflow-y-auto bg-soft-cream px-4 py-8">
+            <div className="grid grid-cols-2 gap-4 pb-32">
               {navigation.map((item) => (
                 <div key={item.name} className={item.children ? 'col-span-2 mt-4' : 'col-span-1'}>
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className="bg-gray-50 p-6 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center gap-3 active:bg-primary-50 transition-all"
+                      className="bg-white p-6 rounded-[2rem] border border-gray-100 flex flex-col items-center justify-center text-center gap-3 shadow-sm active:bg-primary-50 transition-all"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <div className="w-12 h-12 bg-white text-primary-600 rounded-2xl flex items-center justify-center shadow-sm">
+                      <div className="w-12 h-12 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center">
                         <item.icon className="w-6 h-6" />
                       </div>
                       <span className="font-black text-gray-900 text-sm">{item.name}</span>
                     </Link>
                   ) : (
-                    <div className="space-y-4">
+                    <div className="space-y-4 mt-2">
                       <div className="flex items-center gap-3 px-2">
                         <div className="w-1.5 h-6 bg-primary-500 rounded-full" />
                         <h3 className="font-black text-gray-400 uppercase tracking-widest text-xs">{item.name}</h3>
@@ -184,10 +188,10 @@ export function Header() {
                           <Link
                             key={child.name}
                             href={child.href}
-                            className="bg-gray-50 p-5 rounded-[2rem] border border-gray-100 flex flex-col items-center justify-center text-center gap-3 active:bg-primary-50 transition-all"
+                            className="bg-white p-5 rounded-[2rem] border border-gray-100 flex flex-col items-center justify-center text-center gap-3 shadow-sm active:bg-primary-50 transition-all"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
-                            <div className="w-10 h-10 bg-white text-gray-600 rounded-xl flex items-center justify-center shadow-sm">
+                            <div className="w-10 h-10 bg-soft-50 text-gray-600 rounded-xl flex items-center justify-center">
                               <child.icon className="w-5 h-5" />
                             </div>
                             <span className="font-bold text-gray-800 text-xs leading-tight">{child.name}</span>
@@ -201,14 +205,22 @@ export function Header() {
             </div>
           </div>
 
-          <div className="p-6 bg-white border-t border-gray-100 shrink-0 grid grid-cols-2 gap-4 pb-safe">
-            <a href="tel:00-0000-0000" className="bg-accent-500 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg">
+          {/* DASHBOARD FOOTER - Bottom Contact with offset to avoid overlap with site navigation */}
+          <div className="p-6 bg-white border-t border-gray-100 shrink-0 grid grid-cols-2 gap-4 pb-24 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+            <a
+              href="tel:00-0000-0000"
+              className="bg-accent-500 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg shadow-accent-100"
+            >
               <Phone className="w-6 h-6 mb-1" />
-              <span className="text-xs">お電話</span>
+              <span className="text-xs font-bold">お電話</span>
             </a>
-            <Link href="/contact" className="bg-primary-600 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link
+              href="/contact"
+              className="bg-primary-600 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg shadow-primary-100"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               <Mail className="w-6 h-6 mb-1" />
-              <span className="text-xs">相談フォーム</span>
+              <span className="text-xs font-bold">相談フォーム</span>
             </Link>
           </div>
         </div>
