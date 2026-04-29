@@ -102,72 +102,71 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] bg-white lg:hidden overflow-y-auto">
-          <div className="flex flex-col h-full">
-            {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between h-20 px-4 border-b border-gray-100">
-              <Link href="/" className="flex items-center space-x-3" onClick={() => setIsMobileMenuOpen(false)}>
-                <div className="bg-primary-500 p-2 rounded-xl">
-                  <PawPrint className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xl font-black text-gray-900 tracking-tight">
-                  湖東<span className="text-primary-600">どうぶつ病院</span>
-                </span>
-              </Link>
-              <button 
-                className="p-2 text-gray-600"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <X className="w-8 h-8" />
-              </button>
-            </div>
-
-            {/* Mobile Menu Links */}
-            <div className="flex-1 px-4 py-8 overflow-y-auto">
-              <div className="flex flex-col gap-y-8">
-                {navigation.map((item) => (
-                  <div key={item.name} className="flex flex-col gap-y-4">
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        className="text-2xl font-black text-gray-900"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ) : (
-                      <div className="text-2xl font-black text-gray-900">{item.name}</div>
-                    )}
-                    
-                    {item.children && (
-                      <div className="flex flex-col gap-y-4 pl-4 border-l-4 border-primary-100">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.name}
-                            href={child.href}
-                            className="text-xl font-bold text-gray-500 active:text-primary-600"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {child.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
+        <div className="fixed inset-0 z-[9999] bg-white lg:hidden flex flex-col">
+          {/* Menu Header */}
+          <div className="flex items-center justify-between h-20 px-6 border-b border-gray-100 shrink-0">
+            <div className="flex items-center space-x-3">
+              <div className="bg-primary-500 p-2 rounded-xl">
+                <PawPrint className="w-6 h-6 text-white" />
               </div>
+              <span className="text-xl font-black text-gray-900 tracking-tight">
+                湖東<span className="text-primary-600">どうぶつ病院</span>
+              </span>
             </div>
+            <button 
+              className="p-2 text-gray-900 hover:bg-gray-100 rounded-full transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="閉じる"
+            >
+              <X className="w-8 h-8" />
+            </button>
+          </div>
 
-            {/* Mobile Menu Footer */}
-            <div className="p-4 border-t border-gray-100">
-              <Link
-                href="/contact"
-                className="block bg-primary-600 text-white text-center py-5 rounded-2xl font-black text-xl shadow-lg"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                お問い合わせ
-              </Link>
-            </div>
+          {/* Menu Body - Scrollable Links */}
+          <div className="flex-1 overflow-y-auto px-6 py-10">
+            <nav className="flex flex-col space-y-10">
+              {navigation.map((item) => (
+                <div key={item.name} className="flex flex-col space-y-4">
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="text-3xl font-black text-gray-900 hover:text-primary-600 transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <div className="text-3xl font-black text-gray-900">{item.name}</div>
+                  )}
+                  
+                  {item.children && (
+                    <div className="flex flex-col space-y-4 pl-6 border-l-4 border-primary-500/20">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.name}
+                          href={child.href}
+                          className="text-xl font-bold text-gray-500 hover:text-primary-600 transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
+
+          {/* Menu Footer */}
+          <div className="p-6 border-t border-gray-100 shrink-0 bg-gray-50">
+            <Link
+              href="/contact"
+              className="block w-full bg-primary-600 text-white text-center py-5 rounded-2xl font-black text-xl shadow-xl active:bg-primary-700 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              お問い合わせ
+            </Link>
           </div>
         </div>
       )}
