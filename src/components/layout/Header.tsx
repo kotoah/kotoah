@@ -2,37 +2,46 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { PawPrint, ChevronDown, Menu, X } from "lucide-react";
+import { 
+  PawPrint, ChevronDown, Menu, X, 
+  Home, Info, Stethoscope, Bell, 
+  Pill, Heart, Calendar, HelpCircle, 
+  Settings, Building2, Banknote, Mail 
+} from "lucide-react";
 
 const navigation = [
-  { name: "ホーム", href: "/" },
+  { name: "ホーム", href: "/", icon: Home },
   { 
     name: "当院案内", 
+    icon: Building2,
     children: [
-      { name: "当院について", href: "/about" },
-      { name: "設備・検査案内", href: "/about/facilities" },
-      { name: "よくある質問", href: "/faq" },
+      { name: "当院について", href: "/about", icon: Info },
+      { name: "設備・検査案内", href: "/about/facilities", icon: Settings },
+      { name: "よくある質問", href: "/faq", icon: HelpCircle },
     ]
   },
   { 
     name: "診療案内", 
+    icon: Stethoscope,
     children: [
-      { name: "診療案内トップ", href: "/services" },
-      { name: "一般診療", href: "/services/general" },
-      { name: "予防医療", href: "/services/prevention" },
-      { name: "エキゾチック診療", href: "/services/exotic" },
-      { name: "健康診断", href: "/services/checkup" },
+      { name: "診療案内トップ", href: "/services", icon: Heart },
+      { name: "一般診療", href: "/services/general", icon: Stethoscope },
+      { name: "予防医療", href: "/services/prevention", icon: Pill },
+      { name: "エキゾチック診療", href: "/services/exotic", icon: PawPrint },
+      { name: "健康診断", href: "/services/checkup", icon: Calendar },
     ]
   },
   { 
     name: "各種サービス", 
+    icon: Settings,
     children: [
-      { name: "料金案内", href: "/pricing" },
-      { name: "ペットホテル", href: "/hotel" },
-      { name: "フード・薬注文", href: "/order" },
+      { name: "料金案内", href: "/pricing", icon: Banknote },
+      { name: "ペットホテル", href: "/hotel", icon: Building2 },
+      { name: "フード・薬注文", href: "/order", icon: Pill },
     ]
   },
-  { name: "お知らせ", href: "/news" },
+  { name: "お知らせ", href: "/news", icon: Bell },
+  { name: "お問い合わせ", href: "/contact", icon: Mail },
 ];
 
 export function Header() {
@@ -60,6 +69,7 @@ export function Header() {
           </span>
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-x-8">
           {navigation.map((item) => (
             <div 
@@ -108,21 +118,31 @@ export function Header() {
           </Link>
         </nav>
 
-        {/* Mobile menu button */}
+        {/* Mobile Menu Trigger Button */}
         <button 
-          className="lg:hidden p-2 text-gray-600 focus:outline-none relative z-[100001]"
+          className="lg:hidden flex flex-col items-center justify-center p-2 relative z-[100001]"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="メニュー"
         >
-          {isMobileMenuOpen ? <X className="w-8 h-8 text-gray-900" /> : <Menu className="w-8 h-8 text-gray-600" />}
+          {isMobileMenuOpen ? (
+            <div className="bg-gray-100 p-2 rounded-full">
+              <X className="w-8 h-8 text-gray-900" />
+            </div>
+          ) : (
+            <div className="flex flex-col items-center">
+              <div className="bg-primary-600 text-white px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg shadow-primary-100">
+                <Menu className="w-5 h-5" />
+                <span className="text-xs font-black uppercase tracking-widest">Menu</span>
+              </div>
+            </div>
+          )}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Modern Dashboard Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[100000] bg-white flex flex-col overflow-hidden">
-          {/* Menu Header (Fake header inside overlay) */}
-          <div className="flex items-center justify-between h-20 px-4 border-b border-gray-100 shrink-0 bg-white shadow-sm">
+        <div className="fixed inset-0 z-[100000] bg-soft-cream flex flex-col overflow-hidden">
+          {/* Menu Header (Branding) */}
+          <div className="flex items-center justify-center h-24 shrink-0 bg-white border-b border-gray-100">
             <div className="flex items-center space-x-3">
               <div className="bg-primary-500 p-2 rounded-xl">
                 <PawPrint className="w-6 h-6 text-white" />
@@ -131,53 +151,68 @@ export function Header() {
                 湖東<span className="text-primary-600">どうぶつ病院</span>
               </span>
             </div>
-            {/* The close button is handled by the main toggle button above using higher z-index */}
           </div>
 
-          {/* Menu Body - Scrollable Links */}
-          <div className="flex-1 overflow-y-auto px-6 py-10 bg-white">
-            <nav className="flex flex-col space-y-12 pb-20">
+          {/* Dashboard Body */}
+          <div className="flex-1 overflow-y-auto px-4 py-8">
+            <div className="grid grid-cols-2 gap-4">
               {navigation.map((item) => (
-                <div key={item.name} className="flex flex-col space-y-6">
+                <div key={item.name} className={`${item.children ? 'col-span-2 mt-4' : 'col-span-1'}`}>
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className="text-3xl font-black text-gray-900 active:text-primary-600"
+                      className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center gap-3 active:scale-95 transition-all"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      {item.name}
+                      <div className="w-12 h-12 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center">
+                        <item.icon className="w-6 h-6" />
+                      </div>
+                      <span className="font-black text-gray-900 text-sm">{item.name}</span>
                     </Link>
                   ) : (
-                    <div className="text-lg font-bold text-gray-400 uppercase tracking-widest">{item.name}</div>
-                  )}
-                  
-                  {item.children && (
-                    <div className="flex flex-col space-y-6 pl-4 border-l-4 border-primary-100">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.name}
-                          href={child.href}
-                          className="text-2xl font-bold text-gray-800 active:text-primary-600"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {child.name}
-                        </Link>
-                      ))}
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3 px-2">
+                        <div className="w-1.5 h-6 bg-primary-500 rounded-full" />
+                        <h3 className="font-black text-gray-400 uppercase tracking-widest text-xs">{item.name}</h3>
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        {item.children?.map((child) => (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            className="bg-white p-5 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center gap-3 active:scale-95 transition-all"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <div className="w-10 h-10 bg-soft-50 text-gray-600 rounded-xl flex items-center justify-center group-active:bg-primary-500 group-active:text-white transition-colors">
+                              <child.icon className="w-5 h-5" />
+                            </div>
+                            <span className="font-bold text-gray-800 text-xs leading-tight">{child.name}</span>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
               ))}
-            </nav>
+            </div>
           </div>
 
-          {/* Menu Footer */}
-          <div className="p-6 border-t border-gray-100 shrink-0 bg-gray-50 pb-safe">
+          {/* Dashboard Footer (Quick Contact) */}
+          <div className="p-6 bg-white border-t border-gray-100 shrink-0 grid grid-cols-2 gap-4 pb-safe">
+            <a
+              href="tel:00-0000-0000"
+              className="bg-accent-500 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg shadow-accent-100 active:bg-accent-600"
+            >
+              <Phone className="w-6 h-6 mb-1" />
+              <span className="text-xs">お電話</span>
+            </a>
             <Link
               href="/contact"
-              className="block w-full bg-primary-600 text-white text-center py-5 rounded-2xl font-black text-xl shadow-xl"
+              className="bg-primary-600 text-white flex flex-col items-center justify-center py-4 rounded-2xl font-black shadow-lg shadow-primary-100 active:bg-primary-700"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              お問い合わせ
+              <Mail className="w-6 h-6 mb-1" />
+              <span className="text-xs">相談フォーム</span>
             </Link>
           </div>
         </div>
