@@ -124,28 +124,28 @@ export function Header() {
 
           {/* Menu Body - Scrollable Links */}
           <div className="flex-1 overflow-y-auto px-6 py-10 bg-white">
-            <nav className="flex flex-col space-y-10">
+            <nav className="flex flex-col space-y-12 pb-10">
               {navigation.map((item) => (
-                <div key={item.name} className="flex flex-col space-y-4">
+                <div key={item.name} className="flex flex-col space-y-6">
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className="text-3xl font-black text-gray-900 hover:text-primary-600 transition-colors"
+                      className="text-3xl font-black text-gray-900 active:text-primary-600 transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}
                     </Link>
                   ) : (
-                    <div className="text-3xl font-black text-gray-900">{item.name}</div>
+                    <div className="text-xl font-bold text-gray-400 uppercase tracking-widest">{item.name}</div>
                   )}
                   
                   {item.children && (
-                    <div className="flex flex-col space-y-4 pl-6 border-l-4 border-primary-500/20">
+                    <div className="flex flex-col space-y-6 pl-4 border-l-4 border-primary-100">
                       {item.children.map((child) => (
                         <Link
                           key={child.name}
                           href={child.href}
-                          className="text-xl font-bold text-gray-500 hover:text-primary-600 transition-colors"
+                          className="text-2xl font-black text-gray-700 active:text-primary-600 transition-colors"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {child.name}
