@@ -119,14 +119,6 @@ export default function VaccinePage() {
                     </p>
                   </div>
                 </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-black text-orange-600">フィラリア予防</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    フェレットもワンちゃん同様、蚊が媒介するフィラリア（犬糸状虫）に感染します。
-                    体が小さいため、わずか数匹の寄生でも重症化しやすく、治療も困難なため、月1回の予防薬による対策が非常に重要です。
-                  </p>
-                </div>
               </div>
             </div>
 

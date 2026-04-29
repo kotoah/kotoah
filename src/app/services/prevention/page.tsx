@@ -127,9 +127,14 @@ export default function PreventionPage() {
                         <CheckCircle2 className="w-5 h-5 text-primary-500" />
                         猫ちゃん・フェレットちゃんの場合
                       </h4>
-                      <p className="text-sm text-gray-600 leading-relaxed">
-                        猫やフェレットも感染するため予防は強く推奨されますが、犬と異なり<strong>「少量寄生」</strong>（寄生する数が非常に少ない）という特徴があるため、事前検査は行わず、当日の健康状態や体重測定に基づいて予防薬を処方いたします。
-                      </p>
+                      <div className="text-sm text-gray-600 leading-relaxed space-y-4">
+                        <p>
+                          猫やフェレットもフィラリアに感染するため予防は極めて重要です。特にフェレットは体が小さいため、<strong>わずか数匹の寄生でも重篤な症状</strong>を引き起こし、死に至るリスクがあります。
+                        </p>
+                        <p>
+                          犬と異なり<strong>「少量寄生」</strong>（寄生する数が非常に少ない）という特徴があるため、事前検査は行わず、当日の健康状態や体重測定に基づいて最適な予防薬を処方いたします。
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
