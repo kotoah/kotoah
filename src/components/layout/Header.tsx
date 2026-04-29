@@ -102,9 +102,9 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[9999] bg-white lg:hidden flex flex-col">
+        <div className="fixed inset-0 z-[9999] bg-white opacity-100 lg:hidden flex flex-col">
           {/* Menu Header */}
-          <div className="flex items-center justify-between h-20 px-6 border-b border-gray-100 shrink-0">
+          <div className="flex items-center justify-between h-20 px-6 border-b border-gray-100 shrink-0 bg-white">
             <div className="flex items-center space-x-3">
               <div className="bg-primary-500 p-2 rounded-xl">
                 <PawPrint className="w-6 h-6 text-white" />
