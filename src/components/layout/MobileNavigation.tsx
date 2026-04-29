@@ -8,7 +8,7 @@ const navItems = [
   { name: "ホーム", href: "/", icon: Home },
   { name: "診療", href: "/services", icon: Stethoscope },
   { name: "お知らせ", href: "/news", icon: Bell },
-  { name: "アクセス", href: "/about", icon: MapPin },
+  { name: "アクセス", href: "/access", icon: MapPin },
   { name: "電話", href: "tel:00-0000-0000", icon: Phone, isExternal: true },
 ];
 

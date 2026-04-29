@@ -17,6 +17,7 @@ const navigation = [
     children: [
       { name: "当院について", href: "/about", icon: Info },
       { name: "設備・検査案内", href: "/about/facilities", icon: Settings },
+      { name: "アクセス・時間", href: "/access", icon: MapPin },
       { name: "よくある質問", href: "/faq", icon: HelpCircle },
     ]
   },
