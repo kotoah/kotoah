@@ -6,7 +6,7 @@ import {
   PawPrint, ChevronDown, Menu, X, 
   Home, Info, Stethoscope, Bell, 
   Pill, Heart, Calendar, HelpCircle, 
-  Settings, Building2, Banknote, Mail 
+  Settings, Building2, Banknote, Mail, Phone 
 } from "lucide-react";
 
 const navigation = [
