@@ -15,15 +15,24 @@ const navigation = [
     ]
   },
   { 
-    name: "診療・サービス", 
+    name: "診療案内", 
     children: [
-      { name: "診療案内", href: "/services" },
+      { name: "診療案内トップ", href: "/services" },
+      { name: "一般診療", href: "/services/general" },
+      { name: "予防医療", href: "/services/prevention" },
+      { name: "エキゾチック診療", href: "/services/exotic" },
+      { name: "健康診断", href: "/services/checkup" },
+    ]
+  },
+  { 
+    name: "各種サービス", 
+    children: [
       { name: "料金案内", href: "/pricing" },
       { name: "ペットホテル", href: "/hotel" },
+      { name: "フード・薬注文", href: "/order" },
     ]
   },
   { name: "お知らせ", href: "/news" },
-  { name: "フード・薬注文", href: "/order" },
 ];
 
 export function Header() {
@@ -123,29 +132,29 @@ export function Header() {
           </div>
 
           {/* Menu Body - Scrollable Links */}
-          <div className="flex-1 overflow-y-auto px-6 py-10 bg-white">
-            <nav className="flex flex-col space-y-12 pb-10">
+          <div className="flex-1 overflow-y-auto px-6 py-8 bg-white">
+            <nav className="flex flex-col space-y-10 pb-10">
               {navigation.map((item) => (
-                <div key={item.name} className="flex flex-col space-y-6">
+                <div key={item.name} className="flex flex-col space-y-4">
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className="text-3xl font-black text-gray-900 active:text-primary-600 transition-colors"
+                      className="text-2xl font-black text-gray-900 active:text-primary-600 transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}
                     </Link>
                   ) : (
-                    <div className="text-xl font-bold text-gray-400 uppercase tracking-widest">{item.name}</div>
+                    <div className="text-lg font-bold text-gray-400 uppercase tracking-widest">{item.name}</div>
                   )}
                   
                   {item.children && (
-                    <div className="flex flex-col space-y-6 pl-4 border-l-4 border-primary-100">
+                    <div className="flex flex-col space-y-5 pl-4 border-l-4 border-primary-100">
                       {item.children.map((child) => (
                         <Link
                           key={child.name}
                           href={child.href}
-                          className="text-2xl font-black text-gray-700 active:text-primary-600 transition-colors"
+                          className="text-xl font-black text-gray-700 active:text-primary-600 transition-colors"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {child.name}
@@ -162,7 +171,7 @@ export function Header() {
           <div className="p-6 border-t border-gray-100 shrink-0 bg-gray-50">
             <Link
               href="/contact"
-              className="block w-full bg-primary-600 text-white text-center py-5 rounded-2xl font-black text-xl shadow-xl active:bg-primary-700 transition-colors"
+              className="block w-full bg-primary-600 text-white text-center py-5 rounded-2xl font-black text-lg shadow-xl active:bg-primary-700 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               お問い合わせ
