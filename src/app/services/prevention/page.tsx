@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Syringe, ShieldCheck, Bug, Heart, Calendar, Info, AlertTriangle, CheckCircle2, Banknote, ChevronRight } from "lucide-react";
+import { Syringe, ShieldCheck, Bug, Heart, Calendar, Info, AlertTriangle, CheckCircle2, Banknote, ChevronRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -48,13 +48,22 @@ export default function PreventionPage() {
                     <span className="block text-lg text-primary-600 font-bold mt-1">蚊が運ぶ恐ろしい寄生虫から守る</span>
                   </h2>
                 </div>
-                <Link 
-                  href="/pricing#prevention-fees" 
-                  className="inline-flex items-center gap-2 bg-white text-primary-600 px-6 py-2 rounded-full font-bold border-2 border-primary-100 hover:bg-primary-50 transition-all text-sm shadow-sm"
-                >
-                  <Banknote className="w-4 h-4" />
-                  料金を確認する
-                </Link>
+                <div className="flex flex-wrap gap-3">
+                  <Link 
+                    href="/services/prevention/heartworm" 
+                    className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-2 rounded-full font-black hover:bg-primary-700 transition-all text-sm shadow-md"
+                  >
+                    詳細ページを見る
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link 
+                    href="/pricing#prevention-fees" 
+                    className="inline-flex items-center gap-2 bg-white text-primary-600 px-6 py-2 rounded-full font-bold border-2 border-primary-100 hover:bg-primary-50 transition-all text-sm shadow-sm"
+                  >
+                    <Banknote className="w-4 h-4" />
+                    料金を確認する
+                  </Link>
+                </div>
               </div>
 
               <div className="bg-white p-8 md:p-12 rounded-[50px] shadow-sm border border-soft-100 space-y-10">
@@ -81,6 +90,15 @@ export default function PreventionPage() {
                       <p className="text-3xl font-black text-gray-900">5月 〜 12月</p>
                       <p className="text-xs text-gray-400 mt-2">※計8回（毎月ほぼ同じ日に）</p>
                     </div>
+                  </div>
+                  <div className="mt-8">
+                    <Link 
+                      href="/services/prevention/heartworm" 
+                      className="bg-primary-600 text-white inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-black hover:bg-primary-700 transition-all shadow-lg"
+                    >
+                      フィラリア予防のより詳しい解説はこちら
+                      <ArrowRight className="w-5 h-5" />
+                    </Link>
                   </div>
                 </div>
 
@@ -279,16 +297,6 @@ export default function PreventionPage() {
           {/* Sidebar Area */}
           <div className="lg:col-span-4 space-y-8">
             <div className="sticky top-32 space-y-8">
-              <div className="bg-gray-900 text-white p-8 rounded-[40px] shadow-xl">
-                 <h3 className="text-xl font-black mb-6">クイックメニュー</h3>
-                 <nav className="space-y-2">
-                   <Link href="/services/prevention/heartworm" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10 text-primary-400 font-black">フィラリア予防について</Link>
-                   <Link href="#flea-tick" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10">ノミ・マダニ予防</Link>
-                   <Link href="/services/prevention/sfts" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10 text-rose-400 font-black">SFTSについて (重要)</Link>
-                   <Link href="#vaccine" className="block p-4 rounded-2xl hover:bg-white/10 transition-colors border border-white/10">ワクチン接種</Link>
-                 </nav>
-              </div>
-
               <div className="bg-white p-8 rounded-[40px] shadow-sm border border-soft-100">
                 <h2 className="text-xl font-black text-gray-900 mb-6 flex items-center gap-2">
                   <Info className="w-6 h-6 text-primary-500" />
