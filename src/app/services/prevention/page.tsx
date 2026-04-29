@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Syringe, ShieldCheck, Bug, Heart, Calendar, Info, AlertTriangle, CheckCircle2, Banknote } from "lucide-react";
+import { Syringe, ShieldCheck, Bug, Heart, Calendar, Info, AlertTriangle, CheckCircle2, Banknote, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
