@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Syringe, ShieldCheck, Bug, Heart, Calendar, Info, AlertTriangle, CheckCircle2, Banknote, ChevronRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { PreventionSelector } from "@/components/shared/PreventionSelector";
 
 export const metadata: Metadata = {
   title: "予防医療について | 湖東どうぶつ病院",
@@ -315,6 +316,18 @@ export default function PreventionPage() {
           </div>
         </div>
         
+        {/* Interactive Selector */}
+        <section className="mt-32">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4">予防薬セレクト・ガイド</h2>
+            <p className="text-gray-500 font-bold max-w-2xl mx-auto">
+              「どのお薬を選べばいいかわからない」という飼い主様へ。<br />
+              ライフスタイルに合わせた最適な予防プランをご提案します。
+            </p>
+          </div>
+          <PreventionSelector />
+        </section>
+
         <div className="mt-24 text-center">
           <Link 
             href="/services"
