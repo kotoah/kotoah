@@ -200,11 +200,16 @@ export default function PreventionPage() {
                         <AlertTriangle className="w-6 h-6 text-red-600" />
                         人間への恐ろしい感染症
                       </h3>
-                      <p className="text-sm text-red-800 leading-relaxed font-medium">
-                        特に注意が必要なのが、マダニが媒介する<strong>SFTS（重症熱性血小板減少症候群）</strong>です。
+                      <p className="text-sm text-red-800 leading-relaxed font-medium mb-6">
+                        特に注意が必要なのが、マダニが媒介する<Link href="/services/prevention/sfts" className="underline font-black hover:text-red-600 transition-colors">SFTS（重症熱性血小板減少症候群）</Link>です。
                         これは動物だけでなく人間にも感染し、<strong>有効な治療薬やワクチンがなく、高い致死率が報告されている非常に危険な病気</strong>です。
-                        ペットにマダニを付けないことは、飼い主様自身の命を守ることにも直結します。
                       </p>
+                      <Link 
+                        href="/services/prevention/sfts" 
+                        className="inline-flex items-center gap-2 text-red-700 font-black hover:underline text-sm"
+                      >
+                        SFTSについて詳しく <ChevronRight className="w-4 h-4" />
+                      </Link>
                     </div>
 
                     <div className="bg-accent-500 p-8 rounded-[40px] text-white shadow-xl relative overflow-hidden">
@@ -306,6 +311,13 @@ export default function PreventionPage() {
             className="inline-flex items-center gap-2 text-primary-600 font-black hover:bg-primary-50 px-10 py-5 rounded-full border-2 border-primary-600 transition-all shadow-lg shadow-primary-50"
           >
             ← 診療案内トップへ戻る
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+     ← 診療案内トップへ戻る
           </Link>
         </div>
       </div>

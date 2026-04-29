@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Bug, ShieldCheck, AlertTriangle, Info, Heart, CheckCircle2, ChevronRight, Thermometer, Sparkles } from "lucide-react";
+import { Bug, ShieldCheck, AlertTriangle, Info, Heart, CheckCircle2, ChevronRight, Thermometer, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -114,13 +114,21 @@ export default function FleaTickPage() {
                     <h3 className="text-xl font-black text-gray-900">マダニの脅威</h3>
                   </div>
                   <div className="space-y-4">
-                    <div className="bg-rose-50/50 p-6 rounded-2xl border border-rose-100">
-                      <h4 className="font-black text-rose-800 mb-2 text-sm flex items-center gap-2">
-                        SFTS（重症熱性血小板減少症候群）
-                        <span className="text-[10px] bg-rose-600 text-white px-2 py-0.5 rounded-full">要注意</span>
-                      </h4>
-                      <p className="text-xs text-rose-900/70 leading-relaxed">マダニが運ぶウイルスによる病気で、人にも感染し、最悪の場合死に至る極めて危険な病気です。</p>
-                    </div>
+                    <Link href="/services/prevention/sfts" className="block group">
+                      <div className="bg-rose-50/50 p-6 rounded-2xl border border-rose-100 group-hover:bg-rose-100 transition-colors relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <ChevronRight className="w-4 h-4 text-rose-600" />
+                        </div>
+                        <h4 className="font-black text-rose-800 mb-2 text-sm flex items-center gap-2">
+                          SFTS（重症熱性血小板減少症候群）
+                          <span className="text-[10px] bg-rose-600 text-white px-2 py-0.5 rounded-full">要注意</span>
+                        </h4>
+                        <p className="text-xs text-rose-900/70 leading-relaxed pr-6">マダニが運ぶウイルスによる病気で、人にも感染し、最悪の場合死に至る極めて危険な病気です。</p>
+                        <div className="mt-3 text-[10px] font-bold text-rose-600 flex items-center gap-1">
+                          詳しく見る <ArrowRight className="w-3 h-3" />
+                        </div>
+                      </div>
+                    </Link>
                     <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
                       <h4 className="font-black text-gray-900 mb-2 text-sm">バベシア症</h4>
                       <p className="text-xs text-gray-600 leading-relaxed">赤血球を破壊し、激しい貧血を引き起こす命に関わる病気です。</p>
@@ -200,10 +208,13 @@ export default function FleaTickPage() {
                   </p>
                 </div>
                 <div className="bg-emerald-700 p-5 rounded-2xl font-bold">
-                  <p>すぐにご来院ください。</p>
-                  <p className="text-[10px] opacity-80 mt-1">
+                  <p className="mb-2">すぐにご来院ください。</p>
+                  <p className="text-[10px] opacity-80 mb-4">
                     専用の器具で安全に取り除き、適切な処置を行います。
                   </p>
+                  <Link href="/services/prevention/sfts" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl text-[10px] transition-all border border-white/20">
+                    <Info className="w-3 h-3" /> SFTSについて詳しく
+                  </Link>
                 </div>
               </div>
             </div>
