@@ -248,7 +248,12 @@ export default function PreventionPage() {
                    <p className="text-sm text-gray-600 leading-relaxed mb-4">
                      致命的な感染症を防ぐための注射です。生活スタイルに合わせて最適な種類をご提案します。
                    </p>
-                   <span className="bg-primary-100 text-primary-700 text-xs font-black px-3 py-1 border-2 border-primary-700">対象：犬・猫・フェレット</span>
+                   <div className="flex flex-wrap items-center gap-4">
+                     <span className="bg-primary-100 text-primary-700 text-xs font-black px-3 py-1 border-2 border-primary-700">対象：犬・猫・フェレット</span>
+                     <Link href="/services/prevention/vaccine" className="text-primary-600 font-bold text-sm flex items-center gap-1 hover:underline">
+                        詳細を見る <ChevronRight className="w-4 h-4" />
+                     </Link>
+                   </div>
                 </div>
               </div>
             </section>
