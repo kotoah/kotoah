@@ -63,14 +63,6 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-          <div className="flex-1 relative w-full max-w-[320px] lg:max-w-lg aspect-square bg-white rounded-[60px] lg:rounded-[80px] shadow-2xl overflow-hidden border-4 lg:border-8 border-white group">
-            <div className="absolute inset-0 bg-primary-50 flex items-center justify-center">
-              <PawPrint className="w-24 h-24 lg:w-32 lg:h-32 text-primary-100 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700" />
-            </div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-transparent to-white/40">
-               <h3 className="text-2xl lg:text-3xl font-black text-gray-900 mb-1 tracking-tighter">湖東どうぶつ病院</h3>
-               <p className="text-primary-600 font-bold tracking-widest text-[10px] lg:text-sm uppercase">Koto Animal Hospital</p>            </div>
-          </div>
         </div>
       </section>
 
