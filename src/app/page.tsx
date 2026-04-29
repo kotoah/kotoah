@@ -78,7 +78,7 @@ export default async function Home() {
       </section>
 
       {/* 2. About Section */}
-      <section className="py-32 bg-white rounded-t-[100px] -mt-20 relative z-10 shadow-[-20px_-20px_60px_rgba(0,0,0,0.02)]">
+      <section className="py-24 lg:py-32 bg-white rounded-t-[60px] lg:rounded-t-[100px] -mt-10 lg:-mt-20 relative z-10 shadow-[-20px_-20px_60px_rgba(0,0,0,0.02)]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1 space-y-8">
@@ -282,7 +282,7 @@ export default async function Home() {
       </section>
 
       {/* 7. Footer Call to Action */}
-      <section className="py-32 bg-gray-900 mx-4 rounded-b-[100px] text-center text-white relative overflow-hidden">
+      <section className="py-20 lg:py-32 bg-gray-900 mx-4 rounded-b-[40px] lg:rounded-b-[100px] text-center text-white relative overflow-hidden">
          <div className="container mx-auto px-4 relative z-10 space-y-10">
             <h2 className="text-[1.75rem] md:text-5xl font-black tracking-tighter leading-tight">
               大切な家族の健康を、<br className="md:hidden" />一緒に守りましょう。

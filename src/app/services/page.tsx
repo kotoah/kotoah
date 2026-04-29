@@ -175,7 +175,7 @@ export default function ServicesPage() {
 
       {/* Target Animals Link */}
       <section className="py-24 container mx-auto px-4 text-center">
-        <div className="bg-primary-50 p-12 rounded-[60px] border-4 border-dashed border-primary-200">
+        <div className="bg-primary-50 p-12 rounded-[40px] lg:rounded-[60px] border-4 border-dashed border-primary-200">
           <h2 className="text-2xl font-black text-primary-800 mb-6">診察対象動物について</h2>
           <p className="text-primary-700 mb-10 max-w-xl mx-auto font-bold">
             犬・猫はもちろん、うさぎ・ハムスター・フェレットなどのエキゾチックアニマルまで幅広く対応しております。
