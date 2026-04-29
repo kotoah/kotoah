@@ -213,9 +213,15 @@ export default function PreventionPage() {
                       </div>
                       <h3 className="text-xl font-black mb-2">当院の推奨</h3>
                       <p className="text-3xl font-black mb-4 tracking-tighter">12ヶ月（通年）予防</p>
-                      <p className="text-sm opacity-90 leading-relaxed font-bold">
+                      <p className="text-sm opacity-90 leading-relaxed font-bold mb-6">
                         季節を問わず被害が出るケースがあるため、当院では毎月の継続的な予防を強くおすすめしています。
                       </p>
+                      <Link 
+                        href="/services/prevention/flea-tick" 
+                        className="inline-flex items-center gap-2 bg-white text-accent-600 px-6 py-3 rounded-2xl font-black hover:bg-accent-50 transition-all text-sm shadow-md"
+                      >
+                        詳しく見る <ChevronRight className="w-4 h-4" />
+                      </Link>
                     </div>
                   </div>
                 </div>
