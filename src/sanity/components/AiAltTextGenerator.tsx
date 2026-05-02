@@ -45,7 +45,7 @@ export function AiAltTextGenerator(props: any) {
     } finally {
       setLoading(false);
     }
-  }, [onChange, parent, imageAsset?._ref]);
+  }, [onChange, parent]);
 
   return (
     <Box>
