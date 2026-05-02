@@ -14,6 +14,8 @@ export const allPostsQuery = groq`
     publishedAt,
     mainImage,
     excerpt,
+    body,
+    htmlBody,
     contentFormat,
     ${categoryFields}
   }
@@ -27,6 +29,8 @@ export const postsByCategoryQuery = groq`
     publishedAt,
     mainImage,
     excerpt,
+    body,
+    htmlBody,
     contentFormat,
     ${categoryFields}
   }
@@ -43,6 +47,8 @@ export const searchPostsQuery = groq`
     publishedAt,
     mainImage,
     excerpt,
+    body,
+    htmlBody,
     contentFormat,
     ${categoryFields}
   }
@@ -56,6 +62,8 @@ export const latestPostsQuery = groq`
     publishedAt,
     mainImage,
     excerpt,
+    body,
+    htmlBody,
     contentFormat,
     ${categoryFields}
   }
