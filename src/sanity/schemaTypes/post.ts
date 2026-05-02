@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { AiAltTextGenerator } from "../components/AiAltTextGenerator";
 
 export const postType = defineType({
   name: "post",
@@ -51,6 +52,17 @@ export const postType = defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        defineField({
+          name: "alt",
+          type: "string",
+          title: "代替テキスト（自動生成対応）",
+          description: "画像の内容を説明する文章です。SEOに効果があります。",
+          components: {
+            input: AiAltTextGenerator,
+          },
+        }),
+      ],
     }),
     defineField({
       name: "excerpt",

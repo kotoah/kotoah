@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { CopyHtmlTag } from "../components/CopyHtmlTag";
+import { AiAltTextGenerator } from "../components/AiAltTextGenerator";
 
 export const imageAssetType = defineType({
   name: "imageAsset",
@@ -21,6 +22,15 @@ export const imageAssetType = defineType({
         hotspot: true,
       },
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "alt",
+      title: "代替テキスト（自動生成対応）",
+      type: "string",
+      description: "画像の内容を説明する文章です。SEOに効果があります。",
+      components: {
+        input: AiAltTextGenerator,
+      },
     }),
     defineField({
       name: "copyHelper",
