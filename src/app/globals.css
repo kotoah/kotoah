@@ -108,17 +108,12 @@
   }
 
   .prose-hospital blockquote {
-    @apply border-l-8 border-accent-400 bg-accent-50/50 p-8 rounded-r-[40px] my-12 relative;
+    @apply border-l-8 border-primary-200 bg-primary-50/50 p-8 rounded-r-[40px] my-12 relative;
     quotes: none;
   }
 
-  .prose-hospital blockquote::before {
-    content: "💡 院長アドバイス";
-    @apply absolute -top-4 left-6 bg-accent-400 text-white px-4 py-1 rounded-full text-xs font-black shadow-md;
-  }
-
   .prose-hospital blockquote p {
-    @apply text-accent-900 font-bold m-0 italic;
+    @apply text-primary-900 font-bold m-0 italic;
   }
 
   /* 蛍光ペン風マーカー */
