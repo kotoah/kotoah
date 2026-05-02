@@ -8,6 +8,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { ArrowLeft, Clock, Calendar, ArrowRight, PawPrint } from "lucide-react";
+import { getPostExcerpt } from "@/lib/utils/text";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${post.title} | 湖東どうぶつ病院`,
-    description: post.excerpt || "湖東どうぶつ病院からのお知らせです。",
+    description: getPostExcerpt(post, 160) || "湖東どうぶつ病院からのお知らせです。",
   };
 }
 

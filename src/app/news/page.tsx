@@ -6,6 +6,7 @@ import { SanityPost } from "@/lib/sanity/types";
 import { urlFor } from "@/lib/sanity/image";
 import { Metadata } from "next";
 import { PawPrint, Search, X, Calendar, ArrowRight } from "lucide-react";
+import { getPostExcerpt } from "@/lib/utils/text";
 
 export const metadata: Metadata = {
   title: "お知らせ・ブログ | 湖東どうぶつ病院",
@@ -138,7 +139,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
                       {post.title}
                     </h2>
                     <p className="text-gray-500 leading-relaxed line-clamp-3 mb-8 text-sm font-medium">
-                      {post.excerpt}
+                      {getPostExcerpt(post)}
                     </p>
                     <div className="mt-auto flex items-center text-primary-600 font-black text-sm uppercase tracking-widest">
                       記事を読む

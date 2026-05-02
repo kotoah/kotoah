@@ -5,6 +5,7 @@ import { latestPostsQuery, animalCategoriesQuery, closuresQuery } from "@/lib/sa
 import { SanityPost } from "@/lib/sanity/types";
 import { urlFor } from "@/lib/sanity/image";
 import MedicalCalendar from "@/components/shared/MedicalCalendar";
+import { getPostExcerpt } from "@/lib/utils/text";
 import { 
   Heart, 
   Stethoscope, 
@@ -294,6 +295,7 @@ export default async function Home() {
                       {post.categories?.[0] && <span className="text-primary-600">#{post.categories[0]}</span>}
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 line-clamp-1 group-hover:text-primary-600 transition-colors">{post.title}</h3>
+                    <p className="text-xs text-gray-400 mt-1 line-clamp-2">{getPostExcerpt(post, 60)}</p>
                   </div>
                 </Link>
               ))}
