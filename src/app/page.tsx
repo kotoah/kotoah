@@ -137,18 +137,18 @@ export default async function Home() {
         </div>
         <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {[
-            { t: "吐いている・下痢", v: "vomiting-diarrhea", icon: <Stethoscope className="w-6 h-6" /> },
-            { t: "痒がる・皮膚の赤み", v: "itching-skin", icon: <Heart className="w-6 h-6" /> },
-            { t: "咳が出る・苦しそう", v: "coughing-breathing", icon: <Bell className="w-6 h-6" /> },
-            { t: "食欲・元気がない", v: "lethargy-appetite", icon: <PawPrint className="w-6 h-6" /> },
-            { t: "飲水量・尿が多い", v: "polydipsia-polyuria", icon: <Pill className="w-6 h-6" /> },
-            { t: "尿が赤い・色が変", v: "abnormal-urine", icon: <Settings className="w-6 h-6" /> },
-            { t: "足を痛そうにしている", v: "limping", icon: <ChevronRight className="w-6 h-6" /> },
-            { t: "ワクチン・予防", v: "vaccine", icon: <ShieldCheck className="w-6 h-6" /> },
+            { t: "吐いている・下痢", h: "/news?symptom=vomiting-diarrhea", icon: <Stethoscope className="w-6 h-6" /> },
+            { t: "痒がる・皮膚の赤み", h: "/news?symptom=itching-skin", icon: <Heart className="w-6 h-6" /> },
+            { t: "咳が出る・苦しそう", h: "/news?symptom=coughing-breathing", icon: <Bell className="w-6 h-6" /> },
+            { t: "食欲・元気がない", h: "/news?symptom=lethargy-appetite", icon: <PawPrint className="w-6 h-6" /> },
+            { t: "飲水量・尿が多い", h: "/news?symptom=polydipsia-polyuria", icon: <Pill className="w-6 h-6" /> },
+            { t: "尿が赤い・色が変", h: "/news?symptom=abnormal-urine", icon: <Settings className="w-6 h-6" /> },
+            { t: "ワクチン・予防", h: "/services/prevention", icon: <ShieldCheck className="w-6 h-6" /> },
+            { t: "健康診断・ケア", h: "/services/checkup", icon: <Calendar className="w-6 h-6" /> },
           ].map((s) => (
             <Link 
-              key={s.v} 
-              href={`/news?symptom=${s.v}`}
+              key={s.t} 
+              href={s.h}
               className="flex items-center gap-4 bg-white p-4 md:p-6 rounded-2xl border border-soft-100 hover:bg-primary-50 hover:border-primary-200 transition-all group shadow-sm"
             >
               <div className="w-10 h-10 bg-primary-50 text-primary-500 rounded-xl flex items-center justify-center group-hover:bg-primary-500 group-hover:text-white transition-colors">

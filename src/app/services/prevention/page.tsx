@@ -292,6 +292,26 @@ export default function PreventionPage() {
                 </div>
               </div>
             </section>
+
+            {/* Related Blog Posts CTA */}
+            <section className="bg-primary-600 rounded-[50px] p-8 md:p-16 text-white text-center relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                <PawPrint className="w-64 h-64 absolute -bottom-20 -right-20 rotate-12" />
+              </div>
+              <div className="relative z-10">
+                <h2 className="text-2xl md:text-4xl font-black mb-6 tracking-tighter">予防に関する最新情報はこちら</h2>
+                <p className="opacity-90 mb-10 font-bold max-w-xl mx-auto leading-relaxed">
+                  実際の症例や、より詳しい季節ごとの注意点などをブログでお届けしています。
+                </p>
+                <Link 
+                  href="/news?symptom=vaccine" 
+                  className="bg-white text-primary-600 px-10 py-5 rounded-full font-black hover:bg-primary-50 transition-all shadow-xl inline-flex items-center gap-3"
+                >
+                  予防・ケアのブログ記事を読む
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
+            </section>
           </div>
 
           {/* Sidebar Area */}
