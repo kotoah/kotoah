@@ -121,29 +121,45 @@ export function Header() {
             ))}
             <Link
               href="/contact"
-              className="bg-primary-600 text-white px-8 py-3 rounded-full font-black text-sm hover:bg-primary-700 transition-all shadow-lg ml-4"
+              className="bg-white text-gray-700 px-6 py-3 rounded-full font-bold border-2 border-soft-100 hover:bg-gray-50 transition-all text-sm"
             >
               お問い合わせ
+            </Link>
+            <Link
+              href="/contact"
+              className="bg-accent-500 text-white px-8 py-3 rounded-full font-black text-sm hover:bg-accent-600 transition-all shadow-lg shadow-accent-100 flex items-center gap-2 ml-2"
+            >
+              <Calendar className="w-4 h-4" />
+              Web予約
             </Link>
           </nav>
 
           {/* Mobile Menu Trigger */}
-          <button 
-            type="button"
-            className="lg:hidden flex items-center justify-center relative z-[10001]"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <div className="bg-gray-100 p-2 rounded-full">
-                <X className="w-8 h-8 text-gray-900" />
-              </div>
-            ) : (
-              <div className="bg-primary-600 text-white px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg shadow-primary-100">
-                <Menu className="w-5 h-5" />
-                <span className="text-xs font-black uppercase tracking-widest">Menu</span>
-              </div>
-            )}
-          </button>
+          <div className="lg:hidden flex items-center gap-3 relative z-[10001]">
+            <Link 
+              href="/contact" 
+              className="bg-accent-500 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg shadow-accent-100 animate-pulse-slow"
+            >
+              <Calendar className="w-4 h-4" />
+              <span className="text-xs font-black">予約</span>
+            </Link>
+            <button 
+              type="button"
+              className="flex items-center justify-center"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <div className="bg-gray-100 p-2 rounded-full">
+                  <X className="w-8 h-8 text-gray-900" />
+                </div>
+              ) : (
+                <div className="bg-primary-600 text-white px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg shadow-primary-100">
+                  <Menu className="w-5 h-5" />
+                  <span className="text-xs font-black uppercase tracking-widest">Menu</span>
+                </div>
+              )}
+            </button>
+          </div>
         </div>
       </header>
 

@@ -17,17 +17,34 @@ interface NewsPageProps {
   searchParams: Promise<{ 
     category?: string;
     q?: string;
+    symptom?: string;
   }>;
 }
 
+const SYMPTOMS = [
+  { title: "吐いている・下痢", value: "vomiting-diarrhea" },
+  { title: "痒がる・皮膚の赤み", value: "itching-skin" },
+  { title: "咳が出る・苦しそう", value: "coughing-breathing" },
+  { title: "食欲がない・元気がない", value: "lethargy-appetite" },
+  { title: "水をたくさん飲む・尿が多い", value: "polydipsia-polyuria" },
+  { title: "足を引きずっている", value: "limping" },
+  { title: "しこりがある", value: "lump" },
+  { title: "目やに・涙目", value: "eye-discharge" },
+  { title: "ワクチン・狂犬病予防", value: "vaccine" },
+  { title: "フィラリア・ノミダニ予防", value: "prevention" },
+  { title: "爪切り・日常ケア", value: "grooming" },
+  { title: "健康診断・ドック", value: "checkup" },
+];
+
 export default async function NewsPage({ searchParams }: NewsPageProps) {
-  const { category: categorySlug, q: searchQuery } = await searchParams;
+  const { category: categorySlug, q: searchQuery, symptom: symptomSlug } = await searchParams;
   
   // 記事とカテゴリ一覧を同時に取得
   const [posts, categories] = await Promise.all([
     client.fetch(searchPostsQuery, { 
       categorySlug: categorySlug || null, 
-      searchQuery: searchQuery ? `*${searchQuery}*` : null 
+      searchQuery: searchQuery ? `*${searchQuery}*` : null,
+      symptom: symptomSlug || null
     }),
     client.fetch(allCategoriesQuery)
   ]);
@@ -37,6 +54,11 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
     ? categories.find((c: any) => c.slug === categorySlug)
     : null;
 
+  // 現在の症状名を取得
+  const currentSymptom = symptomSlug
+    ? SYMPTOMS.find((s) => s.value === symptomSlug)
+    : null;
+
   return (
     <div className="py-24 bg-soft-cream min-h-screen">
       <div className="container mx-auto px-4">
@@ -44,7 +66,8 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
         <div className="text-center mb-16">
           <span className="text-primary-600 font-black tracking-widest uppercase text-sm mb-4 block">Our Journal</span>
           <h1 className="text-[1.5rem] md:text-5xl font-black text-gray-900 mb-8">
-            {categorySlug ? `${currentCategory?.title}の記事一覧` : "お知らせ・ブログ"}
+            {categorySlug ? `${currentCategory?.title}の記事一覧` : 
+             symptomSlug ? `${currentSymptom?.title}の記事一覧` : "お知らせ・ブログ"}
           </h1>
           
           {/* Search & Filter Bar */}
@@ -62,6 +85,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
                 className="w-full bg-white border-4 border-transparent shadow-xl rounded-full py-5 pl-16 pr-24 outline-none focus:border-primary-100 transition-all text-lg font-medium"
               />
               {categorySlug && <input type="hidden" name="category" value={categorySlug} />}
+              {symptomSlug && <input type="hidden" name="symptom" value={symptomSlug} />}
               <button 
                 type="submit" 
                 className="absolute right-3 top-1/2 -translate-y-1/2 bg-primary-600 text-white px-8 py-3 rounded-full font-bold hover:bg-primary-700 transition-all shadow-md shadow-primary-100"
@@ -71,26 +95,51 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
             </form>
 
             {/* Category Filter Pills */}
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link 
-                href="/news"
-                className={`px-6 py-2 rounded-full font-bold text-sm transition-all border-2 ${!categorySlug ? 'bg-primary-600 border-primary-600 text-white shadow-md' : 'bg-white border-soft-100 text-gray-500 hover:border-primary-200'}`}
-              >
-                すべて
-              </Link>
-              {categories.map((cat: any) => (
+            <div className="space-y-4">
+              <p className="text-xs font-black text-gray-400 uppercase tracking-widest">対象動物で絞り込む</p>
+              <div className="flex flex-wrap justify-center gap-3">
                 <Link 
-                  key={cat._id}
-                  href={`/news?category=${cat.slug}${searchQuery ? `&q=${searchQuery}` : ''}`}
-                  className={`px-6 py-2 rounded-full font-bold text-sm transition-all border-2 ${categorySlug === cat.slug ? 'bg-primary-600 border-primary-600 text-white shadow-md' : 'bg-white border-soft-100 text-gray-500 hover:border-primary-200'}`}
+                  href={`/news${searchQuery ? `?q=${searchQuery}` : ''}${symptomSlug ? `${searchQuery ? '&' : '?'}symptom=${symptomSlug}` : ''}`}
+                  className={`px-6 py-2 rounded-full font-bold text-sm transition-all border-2 ${!categorySlug ? 'bg-primary-600 border-primary-600 text-white shadow-md' : 'bg-white border-soft-100 text-gray-500 hover:border-primary-200'}`}
                 >
-                  {cat.title}
+                  すべて
                 </Link>
-              ))}
+                {categories.map((cat: any) => (
+                  <Link 
+                    key={cat._id}
+                    href={`/news?category=${cat.slug}${searchQuery ? `&q=${searchQuery}` : ''}${symptomSlug ? `&symptom=${symptomSlug}` : ''}`}
+                    className={`px-6 py-2 rounded-full font-bold text-sm transition-all border-2 ${categorySlug === cat.slug ? 'bg-primary-600 border-primary-600 text-white shadow-md' : 'bg-white border-soft-100 text-gray-500 hover:border-primary-200'}`}
+                  >
+                    {cat.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Symptom Filter Pills */}
+            <div className="space-y-4 pt-4 border-t border-soft-100">
+              <p className="text-xs font-black text-gray-400 uppercase tracking-widest">症状・お悩みで絞り込む</p>
+              <div className="flex flex-wrap justify-center gap-2">
+                <Link 
+                  href={`/news${searchQuery ? `?q=${searchQuery}` : ''}${categorySlug ? `${searchQuery ? '&' : '?'}category=${categorySlug}` : ''}`}
+                  className={`px-4 py-1.5 rounded-full font-bold text-xs transition-all border-2 ${!symptomSlug ? 'bg-accent-500 border-accent-500 text-white shadow-md' : 'bg-white border-soft-100 text-gray-500 hover:border-accent-200'}`}
+                >
+                  指定なし
+                </Link>
+                {SYMPTOMS.map((s) => (
+                  <Link 
+                    key={s.value}
+                    href={`/news?symptom=${s.value}${searchQuery ? `&q=${searchQuery}` : ''}${categorySlug ? `&category=${categorySlug}` : ''}`}
+                    className={`px-4 py-1.5 rounded-full font-bold text-xs transition-all border-2 ${symptomSlug === s.value ? 'bg-accent-500 border-accent-500 text-white shadow-md' : 'bg-white border-soft-100 text-gray-500 hover:border-accent-200'}`}
+                  >
+                    {s.title}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Active Filters Display */}
-            {(categorySlug || searchQuery) && (
+            {(categorySlug || searchQuery || symptomSlug) && (
               <div className="flex items-center justify-center gap-4 pt-4">
                 <p className="text-sm text-gray-400">
                   <span className="font-bold text-gray-900">{posts.length}</span> 件の記事が見つかりました

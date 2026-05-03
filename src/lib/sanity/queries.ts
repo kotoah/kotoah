@@ -17,6 +17,7 @@ export const allPostsQuery = groq`
     body,
     htmlBody,
     contentFormat,
+    symptoms,
     ${categoryFields}
   }
 `;
@@ -32,6 +33,7 @@ export const postsByCategoryQuery = groq`
     body,
     htmlBody,
     contentFormat,
+    symptoms,
     ${categoryFields}
   }
 `;
@@ -39,7 +41,8 @@ export const postsByCategoryQuery = groq`
 export const searchPostsQuery = groq`
   *[_type == "post" && 
     ($categorySlug == null || $categorySlug in categories[]->slug.current) &&
-    ($searchQuery == null || title match $searchQuery || excerpt match $searchQuery || htmlBody match $searchQuery)
+    ($searchQuery == null || title match $searchQuery || excerpt match $searchQuery || htmlBody match $searchQuery) &&
+    ($symptom == null || $symptom in symptoms)
   ] | order(publishedAt desc) {
     _id,
     title,
@@ -50,6 +53,7 @@ export const searchPostsQuery = groq`
     body,
     htmlBody,
     contentFormat,
+    symptoms,
     ${categoryFields}
   }
 `;
@@ -65,6 +69,7 @@ export const latestPostsQuery = groq`
     body,
     htmlBody,
     contentFormat,
+    symptoms,
     ${categoryFields}
   }
 `;

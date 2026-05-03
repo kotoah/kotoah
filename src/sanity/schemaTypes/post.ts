@@ -34,6 +34,28 @@ export const postType = defineType({
       validation: (Rule) => Rule.unique(),
     }),
     defineField({
+      name: "symptoms",
+      title: "症状・お悩みタグ",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: [
+          { title: "吐いている・下痢", value: "vomiting-diarrhea" },
+          { title: "痒がる・皮膚の赤み", value: "itching-skin" },
+          { title: "咳が出る・苦しそう", value: "coughing-breathing" },
+          { title: "食欲がない・元気がない", value: "lethargy-appetite" },
+          { title: "水をたくさん飲む・尿が多い", value: "polydipsia-polyuria" },
+          { title: "足を引きずっている", value: "limping" },
+          { title: "しこりがある", value: "lump" },
+          { title: "目やに・涙目", value: "eye-discharge" },
+          { title: "ワクチン・狂犬病予防", value: "vaccine" },
+          { title: "フィラリア・ノミダニ予防", value: "prevention" },
+          { title: "爪切り・日常ケア", value: "grooming" },
+          { title: "健康診断・ドック", value: "checkup" },
+        ],
+      },
+    }),
+    defineField({
       name: "contentFormat",
       title: "本文の形式",
       type: "string",

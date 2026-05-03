@@ -219,6 +219,43 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* CEP Section: Search by Symptoms */}
+      <section className="py-16 md:py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-4 text-center mb-16">
+          <span className="text-primary-600 font-black tracking-widest uppercase text-sm">Symptoms & Care</span>
+          <h2 className="text-[1.75rem] md:text-5xl font-black text-gray-900 mt-4 tracking-tighter">症状・お悩みから探す</h2>
+          <p className="text-gray-500 mt-4 font-medium max-w-2xl mx-auto">「こんな時はどうすればいい？」飼い主様の不安に寄り添う情報をお届けします。</p>
+        </div>
+        <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {[
+            { t: "吐いている・下痢", v: "vomiting-diarrhea", icon: <Stethoscope className="w-6 h-6" /> },
+            { t: "痒がる・皮膚の赤み", v: "itching-skin", icon: <Heart className="w-6 h-6" /> },
+            { t: "咳が出る・苦しそう", v: "coughing-breathing", icon: <Bell className="w-6 h-6" /> },
+            { t: "食欲・元気がない", v: "lethargy-appetite", icon: <PawPrint className="w-6 h-6" /> },
+            { t: "飲水量・尿が多い", v: "polydipsia-polyuria", icon: <Pill className="w-6 h-6" /> },
+            { t: "足を引きずっている", v: "limping", icon: <ChevronRight className="w-6 h-6" /> },
+            { t: "ワクチン・予防", v: "vaccine", icon: <ShieldCheck className="w-6 h-6" /> },
+            { t: "健康診断・ケア", v: "checkup", icon: <Calendar className="w-6 h-6" /> },
+          ].map((s) => (
+            <Link 
+              key={s.v} 
+              href={`/news?symptom=${s.v}`}
+              className="flex items-center gap-4 bg-soft-50 p-4 md:p-6 rounded-2xl border border-soft-100 hover:bg-primary-50 hover:border-primary-200 transition-all group"
+            >
+              <div className="w-10 h-10 bg-white text-primary-500 rounded-xl flex items-center justify-center shadow-sm group-hover:bg-primary-500 group-hover:text-white transition-colors">
+                {s.icon}
+              </div>
+              <span className="font-bold text-gray-800 text-sm md:text-base leading-tight">{s.t}</span>
+            </Link>
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <Link href="/news" className="inline-flex items-center gap-2 text-gray-400 font-bold hover:text-primary-600 transition-colors">
+            すべてのお悩み・ブログを見る <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
       {/* 5. Food & Medicine Order Hub */}
       <section className="py-12 md:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4">
