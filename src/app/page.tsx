@@ -19,7 +19,8 @@ import {
   Calendar,
   Bell,
   Pill,
-  Settings
+  Settings,
+  MapPin
 } from "lucide-react";
 
 interface Category {
@@ -123,6 +124,44 @@ export default async function Home() {
                   <h3 className="text-base md:text-xl font-black text-gray-900 tracking-tighter">{s.title}</h3>
                 </Link>
               ))}
+            </div>
+
+            {/* Access Map Section */}
+            <div className="lg:col-span-7 space-y-6 mt-8 lg:mt-0">
+              <div className="flex items-end justify-between border-b-4 border-primary-100 pb-4">
+                <h2 className="text-2xl font-black text-gray-900 tracking-tighter text-left w-full">アクセスマップ</h2>
+              </div>
+              <div className="bg-white p-2 rounded-[32px] border border-soft-100 shadow-sm overflow-hidden h-[300px] md:h-[400px] relative">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264.444534707647!2d136.2163!3d35.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA1JzI0LjAiTiAxMzbCsDEyJzU4LjciRQ!5e0!3m2!1sja!2sjp!4v1714710000000!5m2!1sja!2sjp" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-[24px]"
+                ></iframe>
+              </div>
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 px-2">
+                <div className="flex items-start gap-3">
+                  <div className="bg-primary-100 p-2 rounded-lg text-primary-600">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-black text-gray-900">湖東どうぶつ病院</p>
+                    <p className="text-sm text-gray-500 font-medium">滋賀県東近江市下岸本町75</p>
+                  </div>
+                </div>
+                <Link 
+                  href="https://maps.google.com/?q=湖東どうぶつ病院" 
+                  target="_blank"
+                  className="bg-white text-gray-700 px-6 py-3 rounded-full font-bold border-2 border-soft-100 hover:bg-gray-50 transition-all text-xs flex items-center justify-center gap-2 shadow-sm"
+                >
+                  大きな地図で見る
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
