@@ -16,7 +16,9 @@ import {
   Banknote,
   ArrowRight,
   ChevronRight,
-  Calendar
+  Calendar,
+  Bell,
+  Pill
 } from "lucide-react";
 
 interface Category {
