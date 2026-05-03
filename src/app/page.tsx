@@ -18,7 +18,8 @@ import {
   ChevronRight,
   Calendar,
   Bell,
-  Pill
+  Pill,
+  Settings
 } from "lucide-react";
 
 interface Category {
