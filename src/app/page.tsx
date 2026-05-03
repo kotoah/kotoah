@@ -235,9 +235,9 @@ export default async function Home() {
             { t: "咳が出る・苦しそう", v: "coughing-breathing", icon: <Bell className="w-6 h-6" /> },
             { t: "食欲・元気がない", v: "lethargy-appetite", icon: <PawPrint className="w-6 h-6" /> },
             { t: "飲水量・尿が多い", v: "polydipsia-polyuria", icon: <Pill className="w-6 h-6" /> },
-            { t: "足を引きずっている", v: "limping", icon: <ChevronRight className="w-6 h-6" /> },
+            { t: "尿が赤い・色が変", v: "abnormal-urine", icon: <Settings className="w-6 h-6" /> },
+            { t: "足を痛そうにしている", v: "limping", icon: <ChevronRight className="w-6 h-6" /> },
             { t: "ワクチン・予防", v: "vaccine", icon: <ShieldCheck className="w-6 h-6" /> },
-            { t: "健康診断・ケア", v: "checkup", icon: <Calendar className="w-6 h-6" /> },
           ].map((s) => (
             <Link 
               key={s.v} 
