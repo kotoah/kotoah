@@ -125,44 +125,6 @@ export default async function Home() {
                 </Link>
               ))}
             </div>
-
-            {/* Access Map Section */}
-            <div className="lg:col-span-7 space-y-6 mt-8 lg:mt-0">
-              <div className="flex items-end justify-between border-b-4 border-primary-100 pb-4">
-                <h2 className="text-2xl font-black text-gray-900 tracking-tighter text-left w-full">アクセスマップ</h2>
-              </div>
-              <div className="bg-white p-2 rounded-[32px] border border-soft-100 shadow-sm overflow-hidden h-[300px] md:h-[400px] relative">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264.444534707647!2d136.2163!3d35.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA1JzI0LjAiTiAxMzbCsDEyJzU4LjciRQ!5e0!3m2!1sja!2sjp!4v1714710000000!5m2!1sja!2sjp" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen={true} 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-[24px]"
-                ></iframe>
-              </div>
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 px-2">
-                <div className="flex items-start gap-3">
-                  <div className="bg-primary-100 p-2 rounded-lg text-primary-600">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="font-black text-gray-900">湖東どうぶつ病院</p>
-                    <p className="text-sm text-gray-500 font-medium">滋賀県東近江市下岸本町75</p>
-                  </div>
-                </div>
-                <Link 
-                  href="https://maps.google.com/?q=湖東どうぶつ病院" 
-                  target="_blank"
-                  className="bg-white text-gray-700 px-6 py-3 rounded-full font-bold border-2 border-soft-100 hover:bg-gray-50 transition-all text-xs flex items-center justify-center gap-2 shadow-sm"
-                >
-                  大きな地図で見る
-                  <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -304,7 +266,49 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 7. Footer Call to Action */}
+      {/* 7. Access Map Section */}
+      <section className="py-16 md:py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="space-y-8">
+            <div className="flex items-end justify-between border-b-4 border-primary-100 pb-4">
+              <h2 className="text-3xl font-black text-gray-900 tracking-tighter">アクセスマップ</h2>
+            </div>
+            <div className="bg-white p-2 rounded-[40px] shadow-xl border border-soft-100 overflow-hidden h-[400px] md:h-[500px] relative group">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264.444534707647!2d136.2163!3d35.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA1JzI0LjAiTiAxMzbCsDEyJzU4LjciRQ!5e0!3m2!1sja!2sjp!4v1714710000000!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-[32px]"
+              ></iframe>
+            </div>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 px-4">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary-500 p-3 rounded-2xl text-white shadow-lg shadow-primary-100">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-gray-900 mb-1">湖東どうぶつ病院</h3>
+                  <p className="text-gray-500 font-bold">滋賀県東近江市下岸本町75</p>
+                </div>
+              </div>
+              <Link
+                href="https://maps.google.com/?q=湖東どうぶつ病院"
+                target="_blank"
+                className="bg-white text-gray-700 px-10 py-5 rounded-full font-black border-2 border-soft-100 hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center gap-2 group-hover:border-primary-200"
+              >
+                大きな地図で見る
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Footer Call to Action */}
       <section className="py-16 md:py-24 lg:py-32 bg-gray-900 mx-4 rounded-b-[40px] lg:rounded-b-[100px] text-center text-white relative overflow-hidden">
          <div className="container mx-auto px-4 relative z-10 space-y-10">
             <h2 className="text-[1.75rem] md:text-5xl font-black tracking-tighter leading-tight">
